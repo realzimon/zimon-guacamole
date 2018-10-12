@@ -1,0 +1,22 @@
+{
+  "name": "zimon-guacamole",
+  "version": "0.2.0",
+  "description": "Zimon rewrite in Electron. A dashboard application for civil servants that assigns work fairly. Meme native",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/realzimon/zimon-guacamole.git"
+  },
+  "author": "The Zimon Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/realzimon/zimon-guacamole/issues"
+  },
+  "homepage": "https://github.com/realzimon/zimon-guacamole#readme",
+  "devDependencies": {
+    "electron": "^3.0.4"
+  }
+}
