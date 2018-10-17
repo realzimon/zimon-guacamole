@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 var end;
 
-=======
->>>>>>> 6efe22dcda4b2419433c051d2b69117abc308062
 function timer(minutes, seconds) {
   end = addTime(new Date(), minutes, seconds);
   setInterval(function() {
@@ -12,17 +9,12 @@ function timer(minutes, seconds) {
     $("#timer").html(m + ":" + s);
     //Reset
     if (time.getMinutes() == 0 && time.getSeconds() == 0) {
-<<<<<<< HEAD
       end = addTime(new Date(), minutes, seconds);
       readZivis();
-=======
-      end = addTime(new Date(), 5);
->>>>>>> 6efe22dcda4b2419433c051d2b69117abc308062
     }
   }, 500);
 }
 
-<<<<<<< HEAD
 function reloadTimer(minutes, seconds){
   //Set end to +min, seconds
   end = addTime(new Date(), minutes, seconds);
@@ -30,8 +22,6 @@ function reloadTimer(minutes, seconds){
 }
 
 
-=======
->>>>>>> 6efe22dcda4b2419433c051d2b69117abc308062
 function addTime(time, minutesToAdd, secondsToAdd) {
   time.setMinutes(time.getMinutes() + minutesToAdd);
   time.setSeconds(time.getSeconds() + secondsToAdd);

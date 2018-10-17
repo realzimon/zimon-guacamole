@@ -1,5 +1,14 @@
 var ziviTemplate = "<div class='col-md-2' id='zivi0'><div class='card mb-2 box-shadow'><img id='ziviimage' class='card-img-top' src='fisch.jpg' alt='Card image cap'><div id='zivibg' class='card-body'><p class='card-text' id='ziviname'>ZiviName2</p></div></div></div>"
 var zivis;
+var spanish = false;
+
+function getSpanish() {
+  return spanish;
+}
+
+function setSpanish(s) {
+  spanish = s;
+}
 
 function readZivis() {
   $.ajax({
@@ -31,12 +40,20 @@ function shuffleZivis() {
       console.log("shuffle incorrect; shuffle again");
     }
   }
-  showZivis();
+  if (getSpanish()) {
+    showSpanishZivis();
+  } else {
+    showZivis();
+  }
+}
+
+function clearZivis() {
+  //Remove fields
+  $("#zivis").empty();
 }
 
 function showZivis() {
-  //Remove fields
-  $("#zivis").empty();
+  clearZivis();
 
   for (i = 0; i < zivis.length; i++) {
     if (i == 0) {
@@ -47,6 +64,25 @@ function showZivis() {
     }
     //print content
     $("#zivi" + i).find("#ziviname").html(zivis[i].name);
+    $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].bild);
+    $("#zivi" + i).find("#zivibg").css({
+      backgroundColor: zivis[i].farbe
+    });
+  }
+}
+
+function showSpanishZivis() {
+  clearZivis();
+
+  for (i = 0; i < zivis.length; i++) {
+    if (i == 0) {
+      //Insert first one
+      $("#zivis").prepend(ziviTemplate);
+    } else {
+      $("#zivi" + (i - 1)).clone().prop('id', 'zivi' + i).appendTo("#zivis");
+    }
+    //print content
+    $("#zivi" + i).find("#ziviname").html(zivis[i].spanish);
     $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].bild);
     $("#zivi" + i).find("#zivibg").css({
       backgroundColor: zivis[i].farbe
