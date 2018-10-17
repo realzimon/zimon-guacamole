@@ -1,3 +1,5 @@
+var end;
+
 function timer(minutes, seconds) {
   end = addTime(new Date(), minutes, seconds);
   setInterval(function() {
@@ -7,10 +9,18 @@ function timer(minutes, seconds) {
     $("#timer").html(m + ":" + s);
     //Reset
     if (time.getMinutes() == 0 && time.getSeconds() == 0) {
-      end = addTime(new Date(), 5);
+      end = addTime(new Date(), minutes, seconds);
+      readZivis();
     }
   }, 500);
 }
+
+function reloadTimer(minutes, seconds){
+  //Set end to +min, seconds
+  end = addTime(new Date(), minutes, seconds);
+  readZivis();
+}
+
 
 function addTime(time, minutesToAdd, secondsToAdd) {
   time.setMinutes(time.getMinutes() + minutesToAdd);
