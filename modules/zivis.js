@@ -1,4 +1,5 @@
 var ziviTemplate = "<div class='col-md-2' id='zivi0'><div class='card mb-2 box-shadow'><img id='ziviimage' class='card-img-top' src='fisch.jpg' alt='Card image cap'><div id='zivibg' class='card-body'><p class='card-text' id='ziviname'>ZiviName2</p></div></div></div>"
+var warTemplate = "WAR"
 var zivis;
 var spanish = false;
 
@@ -88,4 +89,9 @@ function showSpanishZivis() {
       backgroundColor: zivis[i].farbe
     });
   }
+}
+
+function showMartialLaw(){
+  clearZivis();
+  $("#zivis").prepend(warTemplate);
 }

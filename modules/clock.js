@@ -1,8 +1,16 @@
 var end;
+var war=false;
+
+function getWar(){
+  return war;
+}
+function setWar(w){
+  war=w;
+}
 
 function timer(minutes, seconds) {
   end = addTime(new Date(), minutes, seconds);
-  setInterval(function() {
+  var t=setInterval(function() {
     var time = new Date((end.getTime()) - (new Date().getTime()));
     var m = leadingZero(time.getMinutes());
     var s = leadingZero(time.getSeconds());
@@ -11,6 +19,10 @@ function timer(minutes, seconds) {
     if (time.getMinutes() == 0 && time.getSeconds() == 0) {
       end = addTime(new Date(), minutes, seconds);
       readZivis();
+    }
+    if(war){
+      console.log("clock at war");
+      clearInterval(t);
     }
   }, 500);
 }
