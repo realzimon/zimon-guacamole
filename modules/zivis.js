@@ -1,6 +1,6 @@
 var ziviTemplate = "<div class='col-md-2' id='zivi0'><div class='card mb-2 box-shadow'><img id='ziviimage' class='card-img-top' src='fisch.jpg' alt='Card image cap'><div id='zivibg' class='card-body'><p class='card-text' id='ziviname'>ZiviName2</p></div></div></div>";
 var ziviEditTemplate = "<div class='col-md-2' id='zivi0'><div class='card mb-2 box-shadow'><input type='hidden' id='inputId' value='0'><input type='text' id='inputName' class='form-control' placeholder='Zivi name' required autofocus><label for='inputSpanish' class='sr-only'>Spanish name</label><input type='text' id='inputPassword' class='form-control' placeholder='El pedro' readonly><label for='inputImage'class='sr-only'>Image</label><input type='text' id='inputImage' class='form-control' placeholder='image/'><button class='btn btn-lg btn-primary btn-block zivibutton'>Edit</button></div></div>";
-var ziviEditExitButton = "<div class='col-md-2' id='zivi0'><div class='card mb-2 box-shadow'><button class='btn btn-lg btn-warning btn-block' id='new'><button class='btn btn-lg btn-danger btn-block' id='exit'>Exit</button></div></div>";
+var ziviEditButton = "<div class='col-md-2' id='zivi0'><div class='card mb-2 box-shadow'><button class='btn btn-lg btn-warning btn-block' id='new'>New Zivi</button><button class='btn btn-lg btn-danger btn-block' id='exit'>Exit</button></div></div>";
 var warTemplate = "WAR"
 var zivis;
 var spanish = false;
@@ -121,7 +121,7 @@ function editZivi() {
     $("#zivi" + i).find("#inputImage").val(zivis[i].bild);
   }
   //ExitButton
-  $("#zivis").prepend(ziviEditExitButton);
+  $("#zivis").prepend(ziviEditButton);
   $("#exit").click(function() {
     setEdit(false);
     restartSystem();
@@ -132,9 +132,7 @@ function editZivi() {
         url: ip + "newZivi.php",
       })
       .done(function(data) {
-        console.log(data);
         readZivisEdit();
-        //editZivi();
       });
   });
   $(".zivibutton").click(function() {
@@ -142,7 +140,6 @@ function editZivi() {
     var $id = $div.find("#inputId").val();
     var $name = $div.find('#inputName').val();
     var $image = $div.find('#inputImage').val();
-    console.log($name + ", " + $image);
     $.get(ip + "updateZivi.php", {
       id: $id,
       name: $name,

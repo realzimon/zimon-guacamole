@@ -53,6 +53,7 @@ $(function() {
           //e --> edit
           console.log("edit");
           editZivi();
+          //editQuote();
           break;
         default:
           break;

@@ -8,18 +8,22 @@ include_once("connection.php");
   $ziviStmnt = $connection->prepare($ziviSql);
   $ziviStmnt->execute();
   $ziviStmnt->bind_result($id, $name, $spanish, $bild, $farbe);
-  echo"{";
-  while($ziviStmnt->fetch()){
+  echo"[";
+  $i=0;
+  while($ziviStmnt->fetch()){ 
+  if($i!=0){
+	  echo",";
+  }
     echo"{";
-    echo"\"id\": \"".$id."\",";
+	echo"\"id\": \"".$id."\",";
     echo"\"name\": \"".$name."\",";
     echo"\"spanish\": \"".$spanish."\",";
     echo"\"bild\": \"".$bild."\",";
-    echo"\"farbe\": \"".$farbe."\",";
+    echo"\"farbe\": \"".$farbe."\"";
     echo"}";
-
+    $i++;
   }
-  echo"}";
+  echo"]";
   $ziviStmnt->close();
   $connection->close();
 ?>

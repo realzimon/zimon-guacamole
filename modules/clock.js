@@ -21,7 +21,6 @@ function timer(minutes, seconds) {
       readZivis();
     }
     if(war){
-      console.log("clock at war");
       clearInterval(t);
     }
   }, 500);
