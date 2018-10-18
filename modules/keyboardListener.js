@@ -1,13 +1,3 @@
-var edit = false;
-
-function getEdit() {
-  return edit;
-}
-
-function setEdit(e) {
-  edit = e;
-}
-
 $(function() {
   $(window).keypress(function(event) {
     if (!getEdit()) {
@@ -25,12 +15,12 @@ $(function() {
           //m --> mexico
           if (getSpanish()) {
             console.log("enough spanish for now.");
-            showZivis();
             setSpanish(false);
+            showZivis();
           } else {
             console.log("spanish!");
-            showSpanishZivis();
             setSpanish(true);
+            showZivis();
           }
           break;
         case "w":

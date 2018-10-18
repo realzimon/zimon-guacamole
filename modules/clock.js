@@ -1,13 +1,3 @@
-var end;
-var war=false;
-
-function getWar(){
-  return war;
-}
-function setWar(w){
-  war=w;
-}
-
 function timer(minutes, seconds) {
   end = addTime(new Date(), minutes, seconds);
   var t=setInterval(function() {

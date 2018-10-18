@@ -4,7 +4,7 @@ var interval = setInterval(getTagesFlade, 21600000);
 function getTagesFlade() {
   //Schaut nach der Zelle neben Berggasse
   $.ajax({
-      url: "https://www.fladerei.com/dyn_inhalte/tagesflade.html",
+      url: fladeAddress,
     })
     .done(function(data) {
       var berggasseStart = data.indexOf("Berggasse");
