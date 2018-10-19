@@ -85,6 +85,7 @@ function editZivi() {
     }
     $("#zivi" + i).find("#inputId").val(zivis[i].id);
     $("#zivi" + i).find("#inputName").val(zivis[i].name);
+    $("#zivi" + i).find("#inputSpanish").val(zivis[i].spanish);
     $("#zivi" + i).find("#inputImage").val(zivis[i].bild);
   }
   //ExitButton
@@ -94,14 +95,22 @@ function editZivi() {
     restartSystem();
     return;
   });
+  //NewButton
   $("#new").click(function() {
     $.ajax({
         url: ip + "newZivi.php",
       })
       .done(function(data) {
-        readZivisEdit();
+        readZivis();
       });
   });
+
+  //InputChange
+  $(".card .ziviedit").bind('input', function(){
+    var $div = $(this).parent().parent();
+    $div.find(".zivibutton").removeClass("btn-primary").addClass("btn-warning");
+  });
+  //SubmitButton
   $(".zivibutton").click(function() {
     var $div = $(this).parent().parent();
     var $id = $div.find("#inputId").val();
@@ -112,6 +121,7 @@ function editZivi() {
       name: $name,
       image: $image
     });
+    $div.find(".zivibutton").removeClass("btn-warning").addClass("btn-primary");
   });
 }
 
