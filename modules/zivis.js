@@ -22,7 +22,7 @@ function readZivis() {
     })
     .done(function(json) {
       zivis = $.parseJSON(json);
-      if (getEdit()) {
+      if (Vars.edit) {
         editZivi();
       } else {
         shuffleZivis();
