@@ -1,10 +1,21 @@
+var quoteTemplate, quoteEditButton;
+$.get("components/quoteCard.html", function(response) {
+  quoteTemplate = response;
+});
+$.get("components/quoteEdit.html", function(response) {
+  quoteEditTemplate = response;
+});
+$.get("components/quoteEditButton.html", function(response) {
+  quoteEditButton = response;
+});
+
 //every 3 hours
 var interval = setInterval(dailyQuote, 10800000);
 var quotes;
 
 function dailyQuote() {
   $.ajax({
-      url: ip + "getRandomQuote.php",
+      url: Vars.ip + "getRandomQuote.php",
     })
     .done(function(data) {
       $("#quote").html(data);
@@ -85,3 +96,5 @@ function editQuote() {
 }
 
 module.exports.dailyQuote = dailyQuote;
+module.exports.readQuotes = readQuotes;
+module.exports.reloadDailyQuote = reloadDailyQuote;

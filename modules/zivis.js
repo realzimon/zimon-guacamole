@@ -1,6 +1,24 @@
+var zivis;
+
+var ziviTemplate, ziviEditTemplate, ziviEditButton;
+$.get("components/ziviCards.html", function(response) {
+  ziviTemplate = response;
+});
+$.get("components/ziviEdit.html", function(response) {
+  ziviEditTemplate = response;
+});
+$.get("components/ziviEditButton.html", function(response) {
+  ziviEditButton = response;
+});
+
+var warTemplate;
+$.get("components/warTemplate.html", function(response) {
+  warTemplate = response;
+});
+
 function readZivis() {
   $.ajax({
-      url: ip + "getZivis.php",
+      url: Vars.ip + "getZivis.php",
     })
     .done(function(json) {
       zivis = $.parseJSON(json);
@@ -73,8 +91,8 @@ function showMartialLaw() {
 }
 
 function editZivi() {
-  setEdit(true);
-  setWar(true);
+  Vars.edit = true;
+  Vars.war = true;
   clearZivis();
   for (i = 0; i < zivis.length; i++) {
     if (i == 0) {
@@ -91,8 +109,8 @@ function editZivi() {
   //ExitButton
   $("#zivis").prepend(ziviEditButton);
   $("#exit").click(function() {
-    setEdit(false);
-    restartSystem();
+    Vars.edit = false;
+    KeyBinds.restartSystem();
     return;
   });
   //NewButton
@@ -126,3 +144,6 @@ function editZivi() {
 }
 
 module.exports.readZivis = readZivis;
+module.exports.showZivis = showZivis;
+module.exports.showMartialLaw = showMartialLaw;
+module.exports.editZivi = editZivi;

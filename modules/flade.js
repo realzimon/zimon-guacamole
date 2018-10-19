@@ -1,5 +1,6 @@
 //every 6 hours
 var interval = setInterval(getTagesFlade, 21600000);
+const fladeAddress = "https://www.fladerei.com/dyn_inhalte/tagesflade.html";
 
 function getTagesFlade() {
   //Schaut nach der Zelle neben Berggasse
@@ -22,3 +23,4 @@ function reloadTagesFlade() {
 }
 
 module.exports.getTagesFlade = getTagesFlade;
+module.exports.reloadTagesFlade = reloadTagesFlade;

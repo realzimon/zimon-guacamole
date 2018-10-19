@@ -1,7 +1,9 @@
-const Flade = require('./modules/flade.js')
-const Clock = require('./modules/clock.js')
-const Quote = require('./modules/quotes.js')
-const Zivis = require('./modules/zivis.js')
+global.Flade = require('./modules/flade');
+global.Clock = require('./modules/clock');
+global.Quote = require('./modules/quotes');
+global.Zivis = require('./modules/zivis');
+global.KeyBinds = require('./modules/keyboardListener');
+global.Vars = require('./modules/vars');
 
 function loadModules(){
   Flade.getTagesFlade();

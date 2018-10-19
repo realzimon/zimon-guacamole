@@ -1,3 +1,5 @@
+var end;
+
 function timer(minutes, seconds) {
   end = addTime(new Date(), minutes, seconds);
   var t=setInterval(function() {
@@ -8,9 +10,9 @@ function timer(minutes, seconds) {
     //Reset
     if (time.getMinutes() == 0 && time.getSeconds() == 0) {
       end = addTime(new Date(), minutes, seconds);
-      readZivis();
+      Zivis.readZivis();
     }
-    if(war){
+    if(Vars.war){
       clearInterval(t);
     }
   }, 500);
@@ -19,7 +21,7 @@ function timer(minutes, seconds) {
 function reloadTimer(minutes, seconds){
   //Set end to +min, seconds
   end = addTime(new Date(), minutes, seconds);
-  readZivis();
+  Zivis.readZivis();
 }
 
 
@@ -50,3 +52,4 @@ function leadingZero(i) {
 
 module.exports.clock = clock;
 module.exports.timer = timer;
+module.exports.reloadTimer = reloadTimer;
