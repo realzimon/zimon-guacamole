@@ -1,10 +1,6 @@
 const {app, BrowserWindow, Menu} = require('electron')
-// const path = require("path")
-// let clock = require(path.resolve('modules/clock.js'))
-// const clock = require('electron').remote.require('modules/clock')
 
 function createWindow () {
-  console.log("create window");
     // Create the browser window.
   let win = new BrowserWindow({ fullscreen: true, titleBarStyle: 'hidden' })
 
@@ -23,11 +19,6 @@ function createWindow () {
       win = null
     })
   }
-
-  // function loadModules(){
-  //   console.log("Loading Modules");
-  //   clock.init();
-  // }
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
