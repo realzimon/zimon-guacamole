@@ -47,3 +47,6 @@ function leadingZero(i) {
   };
   return i;
 }
+
+module.exports.clock = clock;
+module.exports.timer = timer;

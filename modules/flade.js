@@ -20,3 +20,5 @@ function reloadTagesFlade() {
   clearInterval(interval);
   interval = setInterval(getTagesFlade, 21600000);
 }
+
+module.exports.getTagesFlade = getTagesFlade;

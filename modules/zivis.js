@@ -114,3 +114,5 @@ function editZivi() {
     });
   });
 }
+
+module.exports.readZivis = readZivis;

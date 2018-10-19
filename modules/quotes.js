@@ -60,3 +60,5 @@ function editQuote() {
     });
   });
 }
+
+module.exports.dailyQuote = dailyQuote;
