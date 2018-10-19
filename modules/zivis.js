@@ -50,7 +50,7 @@ function shuffleZivis() {
       console.log("shuffle incorrect; shuffle again");
     }
   }
-  if (getSpanish()) {
+  if (Vars.spanish) {
     showSpanishZivis();
   } else {
     showZivis();
@@ -73,7 +73,7 @@ function showZivis() {
       $("#zivi" + (i - 1)).clone().prop('id', 'zivi' + i).appendTo("#zivis");
     }
     //print content
-    if (getSpanish()) {
+    if (Vars.spanish) {
       $("#zivi" + i).find("#ziviname").html(zivis[i].spanish);
     } else {
       $("#zivi" + i).find("#ziviname").html(zivis[i].name);
