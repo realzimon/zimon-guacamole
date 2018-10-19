@@ -43,7 +43,7 @@ $(function() {
           //e --> edit
           console.log("edit");
           editZivi();
-          //editQuote();
+          readQuotes();
           break;
         default:
           break;
@@ -57,6 +57,7 @@ function restartSystem() {
   setWar(false);
   timer(10, 0);
   readZivis();
+  reloadDailyQuote();
 }
 
 function startWar() {
