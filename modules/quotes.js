@@ -66,7 +66,7 @@ function editQuote() {
   //newButton
   $("#newquote").click(function() {
     $.ajax({
-        url: ip + "newQuote.php"
+        url: Vars.ip + "newQuote.php"
       })
       .done(function(data) {
         readQuotes();
