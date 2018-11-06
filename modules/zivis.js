@@ -116,7 +116,7 @@ function editZivi() {
   //NewButton
   $("#new").click(function() {
     $.ajax({
-        url: ip + "newZivi.php",
+        url: ip + "newZivi.php"
       })
       .done(function(data) {
         readZivis();
