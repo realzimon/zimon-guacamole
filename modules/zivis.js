@@ -134,7 +134,7 @@ function editZivi() {
     var $id = $div.find("#inputId").val();
     var $name = $div.find('#inputName').val();
     var $image = $div.find('#inputImage').val();
-    $.get(ip + "updateZivi.php", {
+    $.get(Vars.ip + "updateZivi.php", {
       id: $id,
       name: $name,
       image: $image

@@ -38,7 +38,7 @@ function clearQuotes() {
 
 function readQuotes() {
   $.ajax({
-      url: ip + "getQuotes.php",
+      url: Vars.ip + "getQuotes.php",
     })
     .done(function(json) {
       quotes = $.parseJSON(json);
