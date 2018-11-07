@@ -147,3 +147,4 @@ module.exports.readZivis = readZivis;
 module.exports.showZivis = showZivis;
 module.exports.showMartialLaw = showMartialLaw;
 module.exports.editZivi = editZivi;
+module.exports.shuffleZivis = shuffleZivis;
