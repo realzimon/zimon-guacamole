@@ -21,7 +21,7 @@ function timer(minutes, seconds) {
 function reloadTimer(minutes, seconds){
   //Set end to +min, seconds
   end = addTime(new Date(), minutes, seconds);
-  Zivis.readZivis();
+  Zivis.shuffleZivis();
 }
 
 
