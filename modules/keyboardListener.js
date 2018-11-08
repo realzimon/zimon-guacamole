@@ -5,6 +5,16 @@ $(function() {
             var char = String.fromCharCode(key);
             console.log("key: " + key + "; " + char);
             switch (char) {
+              case "l":
+                if(Vars.listen){
+                  $( ".overlay" ).removeClass('overlay-open');
+                  Vars.listen=false;
+                }
+                else{
+                  $( ".overlay" ).addClass('overlay-open');
+                  Vars.listen=true;
+                }
+                break;
               case "s":
                 //s --> shuffle Zivis
                 //readZivis();
