@@ -2,7 +2,7 @@ var end;
 
 function timer(minutes, seconds) {
   end = addTime(new Date(), minutes, seconds);
-  var t=setInterval(function() {
+  var t = setInterval(function() {
     var time = new Date((end.getTime()) - (new Date().getTime()));
     var m = leadingZero(time.getMinutes());
     var s = leadingZero(time.getSeconds());
@@ -12,16 +12,16 @@ function timer(minutes, seconds) {
       end = addTime(new Date(), minutes, seconds);
       Zivis.readZivis();
     }
-    if(Vars.war){
+    if (Vars.war) {
       clearInterval(t);
     }
   }, 500);
 }
 
-function reloadTimer(minutes, seconds){
+function reloadTimer(minutes, seconds) {
   //Set end to +min, seconds
   end = addTime(new Date(), minutes, seconds);
-  Zivis.shuffleZivis();
+  Zivis.readZivis();
 }
 
 
@@ -34,10 +34,18 @@ function addTime(time, minutesToAdd, secondsToAdd) {
 function clock() {
   //Clock
   setInterval(function() {
-    var current = new Date();
-    var h = leadingZero(current.getHours());
-    var m = leadingZero(current.getMinutes());
-    var s = leadingZero(current.getSeconds());
+      var current = new Date();
+      if (Vars.wrongClock) {
+        //Returns random clock time
+        var cs = current.getSeconds();
+        current.setSeconds(Math.floor(Math.random() * (60 - cs)));
+        var cm = current.getMinutes();
+        current.setMinutes(Math.floor(Math.random() * (60 - cm)));
+      }
+      var h = leadingZero(current.getHours());
+      var m = leadingZero(current.getMinutes());
+      var s = leadingZero(current.getSeconds());
+    
     $("#clock").html(h + ":" + m + ":" + s);
   }, 500);
 }

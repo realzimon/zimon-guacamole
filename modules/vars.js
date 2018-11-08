@@ -34,6 +34,7 @@ var spanish = false;
 var edit = false;
 var war = false;
 var listen=false;
+var wrongClock=false;
 
 function getSpanish() {
   return spanish;
