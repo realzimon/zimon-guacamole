@@ -21,7 +21,7 @@ function timer(minutes, seconds) {
 function reloadTimer(minutes, seconds) {
   //Set end to +min, seconds
   end = addTime(new Date(), minutes, seconds);
-  Zivis.readZivis();
+  Zivis.shuffleZivis();
 }
 
 
@@ -45,7 +45,7 @@ function clock() {
       var h = leadingZero(current.getHours());
       var m = leadingZero(current.getMinutes());
       var s = leadingZero(current.getSeconds());
-    
+
     $("#clock").html(h + ":" + m + ":" + s);
   }, 500);
 }
