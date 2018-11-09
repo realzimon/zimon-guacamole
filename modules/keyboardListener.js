@@ -5,6 +5,15 @@ $(function() {
       var char = String.fromCharCode(key);
       console.log("key: " + key + "; " + char);
       switch (char) {
+        case "b":
+          //b --> no one knows why 'b' but its the filter
+          if ((Vars.selectedFilter + 1) == Vars.filter.length) {
+            Vars.selectedFilter = 0;
+          } else {
+            Vars.selectedFilter++;
+          }
+          $("body").css('filter', Vars.filter[Vars.selectedFilter]);
+          break;
         case "l":
           //l --> listen mode
           if (Vars.listen) {
