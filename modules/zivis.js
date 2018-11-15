@@ -17,17 +17,14 @@ $.get("components/warTemplate.html", function(response) {
 });
 
 function readZivis() {
-  $.ajax({
-      url: Vars.ip + "getZivis.php",
-    })
-    .done(function(json) {
-      zivis = $.parseJSON(json);
-      if (Vars.edit) {
-        editZivi();
-      } else {
-        shuffleZivis();
-      }
-    });
+  mysqlService.readZivisDB(function(result){
+    zivis=result;
+    if (Vars.edit) {
+          editZivi();
+        } else {
+          shuffleZivis();
+        }
+  });
 }
 
 function shuffleZivis() {
@@ -115,12 +112,8 @@ function editZivi() {
   });
   //NewButton
   $("#new").click(function() {
-    $.ajax({
-        url: Vars.ip + "newZivi.php"
-      })
-      .done(function(data) {
-        readZivis();
-      });
+    mysqlService.newZiviDB();
+    readZivis();
   });
 
   //InputChange
@@ -131,15 +124,17 @@ function editZivi() {
   //SubmitButton
   $(".zivibutton").click(function() {
     var $div = $(this).parent().parent();
-    var $id = $div.find("#inputId").val();
-    var $name = $div.find('#inputName').val();
-    var $image = $div.find('#inputImage').val();
-    $.get(Vars.ip + "updateZivi.php", {
-      id: $id,
-      name: $name,
-      image: $image
-    });
+    var id = $div.find("#inputId").val();
+    var name = $div.find('#inputName').val();
+    var image = $div.find('#inputImage').val();
+    mysqlService.updateZiviDB(name, image, id);
     $div.find(".zivibutton").removeClass("btn-warning").addClass("btn-primary");
+  });
+  $(".zividead").click(function() {
+    var $div = $(this).parent().parent();
+    var id = $div.find("#inputId").val();
+    mysqlService.killZiviDB(id);
+    readZivis();
   });
 }
 

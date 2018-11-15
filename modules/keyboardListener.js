@@ -72,7 +72,8 @@ $(function() {
           //e --> edit
           console.log("edit");
           Zivis.editZivi();
-          Quote.readQuotes();
+          //Quote.readQuotes();
+          Quote.editQuote();
           break;
 
         case "f":

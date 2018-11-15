@@ -4,6 +4,7 @@ global.Quote = require('./modules/quotes');
 global.Zivis = require('./modules/zivis');
 global.KeyBinds = require('./modules/keyboardListener');
 global.Vars = require('./modules/vars');
+global.mysqlService = require('./modules/mysqlService');
 
 function loadModules(){
   Flade.getTagesFlade();
@@ -11,6 +12,7 @@ function loadModules(){
   Clock.timer(10,0);
   Quote.dailyQuote();
   Zivis.readZivis();
+  // mysqlService.mysqlConnect();
 }
 
 $(() => {
