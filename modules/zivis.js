@@ -1,4 +1,4 @@
-var zivis;
+let zivis, counter=[];
 
 var ziviTemplate, ziviEditTemplate, ziviEditButton;
 $.get("components/ziviCards.html", function(response) {
@@ -17,34 +17,41 @@ $.get("components/warTemplate.html", function(response) {
 });
 
 function readZivis() {
-  mysqlService.readZivisDB(function(result){
-    zivis=result;
+  mysqlService.readZivisDB(function(result) {
+    zivis = result;
+    for(i=0; i<zivis.length; i++){
+      counter[zivis[i].name]=0;
+    }
     if (Vars.edit) {
-          editZivi();
-        } else {
-          shuffleZivis();
-        }
+      editZivi();
+    } else {
+      shuffleZivis();
+    }
   });
 }
 
 function shuffleZivis() {
-  var lastFirst = zivis[0].name;
-  while (zivis[0].name == lastFirst && zivis.length > 1) {
-    //Shuffles zivi array
-    var currentIndex = zivis.length,
-      temporaryValue, randomIndex;
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      // And swap it with the current element.
-      temporaryValue = zivis[currentIndex];
-      zivis[currentIndex] = zivis[randomIndex];
-      zivis[randomIndex] = temporaryValue;
-    }
-    if (zivis[0].name == lastFirst) {
-      console.log("shuffle incorrect; shuffle again");
+  let lastFirst = zivis[0].name;
+  counter[zivis[0].name]++;
+  console.log(counter);
+  if (zivis.length > 1) {
+    while (zivis[0].name == lastFirst) {
+      //Shuffles zivi array
+      let currentIndex = (zivis.length - 1),
+        temporaryValue, randomIndex;
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        // And swap it with the current element.
+        temporaryValue = zivis[currentIndex];
+        zivis[currentIndex] = zivis[randomIndex];
+        zivis[randomIndex] = temporaryValue;
+        currentIndex--;
+      }
+      if (zivis[0].name == lastFirst) {
+        console.log("shuffle incorrect; shuffle again");
+      }
     }
   }
   if (Vars.spanish) {
@@ -117,7 +124,7 @@ function editZivi() {
   });
 
   //InputChange
-  $(".card .ziviedit").bind('input', function(){
+  $(".card .ziviedit").bind('input', function() {
     var $div = $(this).parent().parent();
     $div.find(".zivibutton").removeClass("btn-primary").addClass("btn-warning");
   });
