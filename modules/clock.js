@@ -10,7 +10,7 @@ function timer(minutes, seconds) {
     //Reset
     if (time.getMinutes() == 0 && time.getSeconds() == 0) {
       end = addTime(new Date(), minutes, seconds);
-      Zivis.readZivis();
+      Zivis.shuffleZivis();
     }
     if (Vars.war) {
       clearInterval(t);
