@@ -33,13 +33,15 @@ function readZivis() {
 
 function shuffleZivis() {
   let lastFirst = zivis[0].name;
+  counter[zivis[0].name]++;
+  roundZivis[roundZivis.length] = zivis[0].id;
   // console.log(counter);
   if (roundZivis.length == zivis.length) {
     roundZivis = [];
     // console.log("This round is over");
   }
   if (zivis.length > 1) {
-    while (zivis[0].name == lastFirst && !roundZivis.includes(zivis[0].id)) {
+    while (roundZivis.includes(zivis[0].id)) {
       //Shuffles zivi array
       let currentIndex = (zivis.length - 1),
         temporaryValue, randomIndex;
@@ -57,8 +59,6 @@ function shuffleZivis() {
         console.log("shuffle incorrect; shuffle again");
       }
     }
-    counter[zivis[0].name]++;
-    roundZivis[roundZivis.length] = zivis[0].id;
   }
   showZivis();
 }
