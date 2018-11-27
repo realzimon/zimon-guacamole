@@ -1,4 +1,5 @@
-let zivis, counter=[];
+let zivis, counter = [];
+let roundZivis = [];
 
 var ziviTemplate, ziviEditTemplate, ziviEditButton;
 $.get("components/ziviCards.html", function(response) {
@@ -19,8 +20,8 @@ $.get("components/warTemplate.html", function(response) {
 function readZivis() {
   mysqlService.readZivisDB(function(result) {
     zivis = result;
-    for(i=0; i<zivis.length; i++){
-      counter[zivis[i].name]=0;
+    for (i = 0; i < zivis.length; i++) {
+      counter[zivis[i].name] = 0;
     }
     if (Vars.edit) {
       editZivi();
@@ -32,10 +33,13 @@ function readZivis() {
 
 function shuffleZivis() {
   let lastFirst = zivis[0].name;
-  counter[zivis[0].name]++;
-  console.log(counter);
+  // console.log(counter);
+  if (roundZivis.length == zivis.length) {
+    roundZivis = [];
+    // console.log("This round is over");
+  }
   if (zivis.length > 1) {
-    while (zivis[0].name == lastFirst) {
+    while (zivis[0].name == lastFirst && !roundZivis.includes(zivis[0].id)) {
       //Shuffles zivi array
       let currentIndex = (zivis.length - 1),
         temporaryValue, randomIndex;
@@ -53,12 +57,10 @@ function shuffleZivis() {
         console.log("shuffle incorrect; shuffle again");
       }
     }
+    counter[zivis[0].name]++;
+    roundZivis[roundZivis.length] = zivis[0].id;
   }
-  if (Vars.spanish) {
-    showSpanishZivis();
-  } else {
-    showZivis();
-  }
+  showZivis();
 }
 
 function clearZivis() {
@@ -82,6 +84,7 @@ function showZivis() {
     } else {
       $("#zivi" + i).find("#ziviname").html(zivis[i].name);
     }
+    $("#zivi" + i).find("#zivicount").html(counter[zivis[i].name]);
     $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].bild);
     $("#zivi" + i).find("#zivibg").css({
       backgroundColor: zivis[i].farbe
