@@ -4,22 +4,13 @@
   height: 100%;
   top: 0;
   left: 0;
-  /*background: rgba(255, 255, 255, 0.80);*/
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-  visibility: 0s 0.5s;
-  transition: opacity 0.5s, visibility 0s 0.5s;
 }
 .overlay-open {
   animation: bgchange 1s linear infinite;
   opacity: 1;
-  visibility: visible;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
 }
-
 .overlay nav {
   text-align: center;
   position: relative;
@@ -30,7 +21,10 @@
 .overlay ul {
   list-style: none;
 }
-
+#zivicount{
+  text-align: center;
+  color: white;
+}
 
 @keyframes bgchange {
   0%{
