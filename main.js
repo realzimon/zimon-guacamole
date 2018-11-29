@@ -8,7 +8,7 @@ function createWindow () {
     win.loadFile('index.html')
 
     // Open the DevTools.
-    win.webContents.openDevTools()
+    //win.webContents.openDevTools()
 
     //let test = new BrowserWindow({width: 800, height: 600, parent: win})
     // Emitted when the window is closed.
