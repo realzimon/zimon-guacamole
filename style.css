@@ -21,10 +21,6 @@
 .overlay ul {
   list-style: none;
 }
-#zivicount{
-  text-align: center;
-  color: white;
-}
 
 @keyframes bgchange {
   0%{
