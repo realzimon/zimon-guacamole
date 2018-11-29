@@ -77,8 +77,8 @@ $(function() {
           break;
 
         case "f":
-          //f --> reload flade
-          Flade.reloadTagesFlade();
+          //f --> reload menu
+          Menu.getDailyMenu();
         default:
           break;
       }

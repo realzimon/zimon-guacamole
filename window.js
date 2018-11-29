@@ -1,4 +1,4 @@
-global.Flade = require('./modules/flade');
+global.Menu = require('./modules/menu');
 global.Clock = require('./modules/clock');
 global.Quote = require('./modules/quotes');
 global.Zivis = require('./modules/zivis');
@@ -7,7 +7,7 @@ global.Vars = require('./modules/vars');
 global.mysqlService = require('./modules/mysqlService');
 
 function loadModules(){
-  Flade.getTagesFlade();
+  Menu.getDailyMenu();
   Clock.clock();
   Clock.timer(10,0);
   Quote.dailyQuote();

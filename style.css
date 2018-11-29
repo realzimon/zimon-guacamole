@@ -30,7 +30,9 @@
   background-color:#f4ba1d;
   transform: translate(0%, 29%);
 }
-
+ul li{
+  list-style: none;
+}
 @keyframes bgchange {
   0%{
     background-color: #03a9f4;
