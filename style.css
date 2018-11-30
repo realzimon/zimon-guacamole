@@ -32,6 +32,19 @@
 ul li{
   list-style: none;
 }
+.clock{
+  font-family: Segment7Standard, fantasy;
+}
+.coffee img{
+  height: 25px;
+}
+.op-25{
+  opacity: 0.25;
+}
+.op-1{
+  opacity: 1;
+}
+
 @keyframes bgchange {
   0%{
     background-color: #03a9f4;

@@ -2,82 +2,99 @@
 <html lang="de">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Zimon</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/segment7" type="text/css">
-  <link rel="stylesheet" type="text/css" href="app/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Zimon</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/segment7" type="text/css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
 
-  <div class="d-flex flex-column flex-md-row align-items-center p-1 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h1 class="my-0 p-2 mr-md-auto"><img src="resources/assets/zimon-hat.png" alt="Zimon hat" height="40" class="align-middle" /> ZIMON</h5>
-      <span class="p-2 text-danger h1" id="clock" style="font-family:Segment7Standard">UHRZEIT</a>
-  </div>
+<div class="d-flex flex-column flex-md-row align-items-center p-1 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h1 class="my-0 p-2 mr-md-auto"><img src="assets/zimon-hat.png" alt="Zimon hat" height="40" class="align-middle"/>
+        ZIMON</h1>
+    <span class="p-2 text-danger h1 clock" id="clock">UHRZEIT</span>
+</div>
 
-  <div class="container mb-3">
+<div class="container mb-3">
     <div class="row">
-      <div class="col-12 text-center pb-3" id="coffee">
-        <img src='assets/coffee.png' id='coffee-bean0' height='25' style='opacity: 0.25' />
-        <img src='assets/coffee.png' id='coffee-bean1' height='25' style='opacity: 0.25' />
-        <img src='assets/coffee.png' id='coffee-bean2' height='25' style='opacity: 0.25' />
-        <img src='assets/coffee.png' id='coffee-bean3' height='25' style='opacity: 0.25' />
-        <img src='assets/coffee.png' id='coffee-bean4' height='25' style='opacity: 0.25' />
-        <img src='assets/coffee.png' id='coffee-bean5' height='25' style='opacity: 0.25' />
-      </div>
+        <div class="col-4" id="coffee-stats">
+            <ul>
+                <li>Espresso: 12</li>
+                <li>Doppelte Espresso: 20</li>
+                <li>Cafe Crema: 30</li>
+            </ul>
+        </div>
+        <div class="col-4 text-center pb-3" id="coffee">
+            <img src='assets/coffee.png' class='op-25' alt="Coffee bean"/>
+            <img src='assets/coffee.png' class='op-25' alt="Coffee bean"/>
+            <img src='assets/coffee.png' class='op-25' alt="Coffee bean"/>
+            <img src='assets/coffee.png' class='op-25' alt="Coffee bean"/>
+            <img src='assets/coffee.png' class='op-25' alt="Coffee bean"/>
+            <img src='assets/coffee.png' class='op-25' alt="Coffee bean"/>
+        </div>
+        <div class="col-4 text-right" id="coffee-km">
+            801km
+        </div>
     </div>
     <div class="row">
-      <div class="col-12 text-center mb-3" id="quotes">
-        <p class="h2 font-weight-light">Zitat des 3-Stunden-Rythmus:</p>
-        <p class="h3 font-weight-light" id="quote">Das ist ein Zitat, dass ein Zitat darstellen soll, da gerade kein Zitat vorhanden ist.</p>
-      </div </div> <p class="text-dark h4 pb-2">
-      Arbeit wird neu verteilt in
-      <span id="timer">TIMER</span>
-      </p>
+        <div class="col-12 text-center mb-3" id="quotes">
+            <p class="h2 font-weight-light">Zitat des 3-Stunden-Rythmus:</p>
+            <p class="h3 font-weight-light" id="quote">Das ist ein Zitat, dass ein Zitat darstellen soll, da gerade kein
+                Zitat vorhanden ist.</p>
+        </div>
+    </div>
+    <p class="text-dark h4 pb-2">
+        Arbeit wird neu verteilt in
+        <span id="timer">TIMER</span>
+    </p>
 
-      <div class="row" id="zivis">
+    <div class="row" id="zivis">
         <!-- ZIVIS -->
-      </div>
+    </div>
+</div>
+
+<div class="row mr-0 pt-3">
+    <div class="col-4">
+        <div class="text-center">
+            <img src="https://www.fladerei.com/wp-content/uploads/2017/09/Fladermaennchen_01-300x215.png" height="75"
+                 alt="Tagesflade"/>
+            <p class="px-5 mt-4 h3 font-weight-light" id="flade">"Flade mit nix drin" -Flade mit spezieller Füllung, aus
+                Stickstoff, Sauerstoff und einigen Edelgasen.</p>
+        </div>
     </div>
 
-    <div class="row mr-0 pt-3">
-      <div class="col-4">
+    <div class="col-8">
         <div class="text-center">
-          <img src="https://www.fladerei.com/wp-content/uploads/2017/09/Fladermaennchen_01-300x215.png" height="75" alt="Tagesflade" />
-          <p class="px-5 mt-4 h3 font-weight-light" id="flade">"Flade mit nix drin" -Flade mit spezieller Füllung, aus Stickstoff, Sauerstoff und einigen Edelgasen.</p>
+            <div class="mensa-image-container">
+                <img src="http://www.mensen.at/images/logo_mensa.png" height="97" alt="Mensa Tagesmenu"
+                     class="mensa-logo"/>
+            </div>
+            <ul class="px-5 mt-4 h3 font-weight-light" id="mensa-menu">
+                <li>Geschmorter Hund mit Bratkartoffeln und Zwiebelringen</li>
+            </ul>
         </div>
-      </div>
-
-      <div class="col-8">
-        <div class="text-center">
-          <div class="mensa-image-container">
-            <img src="http://www.mensen.at/images/logo_mensa.png" height="97" alt="Mensa Tagesmenu" class="mensa-logo" />
-          </div>
-          <ul class="px-5 mt-4 h3 font-weight-light" id="mensa-menu">
-            <li>Geschmorter Hund mit Bratkartoffeln und Zwiebelringen</li>
-          </ul>
-        </div>
-      </div>
     </div>
+</div>
 
-    <div class="overlay">
-      <nav>
+<div class="overlay">
+    <nav>
         <ul>
-          <li>
-            <p>Hey! Listen!</p>
-          </li>
+            <li>
+                <p>Hey! Listen!</p>
+            </li>
         </ul>
-      </nav>
-    </div>
+    </nav>
+</div>
 
-    <script>
-      window.$ = window.jQuery = require('jquery');
-      require('popper.js');
-      require('bootstrap');
-      require('./window.js');
-    </script>
+<script>
+    window.$ = window.jQuery = require('jquery');
+    require('popper.js');
+    require('bootstrap');
+    require('./window.js');
+</script>
 </body>
-
 </html>

@@ -1,29 +1,28 @@
 //every 6 hours
-var interval = setInterval(getDailyMenu, 21600000);
-const fladeAddress = "https://www.fladerei.com/dyn_inhalte/tagesflade.html";
-const mensaAddress = "https://www.imensa.de/wien/omp/index.html";
+let interval = setInterval(getDailyMenu, 21600000);
 
 function getDailyMenu() {
   //Schaut nach der Zelle neben Berggasse
   $.ajax({
-      url: fladeAddress,
-      success: function(data){
-        var berggasseStart = data.indexOf("Berggasse");
-        var fladeStart = data.indexOf("<td>", berggasseStart) + 4;
-        var fladeEnd = data.indexOf("</td>", fladeStart);
-        var tagesflade = data.substr(fladeStart, (fladeEnd - fladeStart));
+      url: Config.fladeUrl,
+      success: function(FladeData){
+        let berggasseStart = FladeData.indexOf("Berggasse");
+        let fladeStart = FladeData.indexOf("<td>", berggasseStart) + 4;
+        let fladeEnd = FladeData.indexOf("</td>", fladeStart);
+        let tagesflade = FladeData.substr(fladeStart, (fladeEnd - fladeStart));
         $("#flade").html(tagesflade);
       }
     });
 
   $.ajax({
-    url: mensaAddress,
-    success: function(data) {
-      $("#mensa-menu").empty();
-      let dailyMealSize = $(data).find('.aw-meal-description').length;
+    url: Config.mensaUrl,
+    success: function(mensaData) {
+      let mensaMenu=$("#mensa-menu");
+      mensaMenu.empty();
+      let dailyMealSize = $(mensaData).find('.aw-meal-description').length;
       for (let i = 0; i < dailyMealSize - 1; i++) {
-        let dailyMeal = $(data).find('.aw-meal-description')[i].innerHTML;
-        $("<li class='pb-3'>" + dailyMeal + "</li>").appendTo($("#mensa-menu"));
+        let dailyMeal = $(mensaData).find('.aw-meal-description')[i].innerHTML;
+        $("<li class='pb-3'>" + dailyMeal + "</li>").appendTo(mensaMenu);
       }
     }
   });

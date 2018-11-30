@@ -1,13 +1,14 @@
-$.get("resources/components/quoteEdit.html", function(response) {
+let quoteEditTemplate;
+$.get("components/quoteEdit.html", function(response) {
   quoteEditTemplate = response;
 });
 //every 3 hours
-var interval = setInterval(dailyQuote, 10800000);
-var quotes;
+let interval = setInterval(dailyQuote, 10800000);
 
 function dailyQuote() {
   mysqlService.readRandomQuoteDB(function(quote) {
     $("#quote").html(quote);
+    console.log(quote);
   });
 }
 
@@ -27,20 +28,17 @@ function editQuote() {
   $("#quote").prepend(quoteEditTemplate);
   //New
   $(".quoteButton").click(function() {
-    var $div = $(this).parent().parent();
-    var $q = $div.find('#quoteContent').val();
-    mysqlService.newQuoteDB($q);
+    let div = $(this).parent().parent();
+    let q = div.find('#quoteContent').val();
+    mysqlService.newQuoteDB(q);
     clearQuotes();
     $("#quote").prepend(quoteEditTemplate);
-    //$div.find(".quoteButton").removeClass("btn-warning").addClass("btn-primary");
   });
-  $("#exit").click(function() {
-    return;
-  });
+  $("#exit").click(function() {  });
   //InputChange
   $(".input-group #quoteContent").bind('input', function() {
-    var $div = $(this).parent();
-    $div.find(".quoteButton").removeClass("btn-primary").addClass("btn-warning");
+    let div = $(this).parent();
+    div.find(".quoteButton").removeClass("btn-primary").addClass("btn-warning");
   });
 }
 

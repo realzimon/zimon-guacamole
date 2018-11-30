@@ -1,9 +1,11 @@
+global.Config = require('./config.json');
+global.Vars = require('./modules/vars');
+global.KeyBinds = require('./modules/keyboardListener');
 global.Menu = require('./modules/menu');
 global.Clock = require('./modules/clock');
 global.Quote = require('./modules/quotes');
 global.Zivis = require('./modules/zivis');
-global.KeyBinds = require('./modules/keyboardListener');
-global.Vars = require('./modules/vars');
+global.Coffee = require('./modules/coffee');
 global.mysqlService = require('./modules/mysqlService');
 
 function loadModules(){
@@ -12,9 +14,8 @@ function loadModules(){
   Clock.timer(10,0);
   Quote.dailyQuote();
   Zivis.readZivis();
-  // mysqlService.mysqlConnect();
 }
 
 $(() => {
   loadModules();
-})
+});

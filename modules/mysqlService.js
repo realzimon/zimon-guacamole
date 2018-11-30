@@ -1,9 +1,9 @@
-var mysql = require('mysql');
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "zimon",
-  password: "sql4Life!",
-  database: "zimon"
+let mysql = require('mysql');
+let con = mysql.createConnection({
+  host: Config.dbHost,
+  user: Config.dbUser,
+  password: Config.dbPassword,
+  database: Config.dbName
 });
 
 con.connect(function(err) {
@@ -11,7 +11,7 @@ con.connect(function(err) {
 });
 
 function readRandomQuoteDB(callback) {
-  con.query("SELECT quote FROM quotes ORDER BY RAND() LIMIT 1", function(err, result, fields) {
+  con.query("SELECT quote FROM quotes ORDER BY RAND() LIMIT 1", function(err, result) {
     callback(result[0].quote);
   });
 }
@@ -22,7 +22,7 @@ function newQuoteDB(quote) {
 }
 
 function readZivisDB(callback) {
-  con.query("SELECT id, name, spanish, bild, farbe FROM zivis WHERE dead=0", function(err, result, fields) {
+  con.query("SELECT id, name, spanish, bild, farbe FROM zivis WHERE dead=0", function(err, result) {
     callback(result);
   });
 }
@@ -36,7 +36,7 @@ function newZiviDB() {
   var spanish = ["Santiago", "Sebastián", "Matías", "Mateo", "Nicolás", "Alejandro", "Diego", "Samuel", "Benjamín", "Daniel", "Joaquín", "Lucas", "Tomas", "Gabriel", "Martín", "David", "Emiliano", "Jerónimo", "Emmanuel", "Agustín", "Juan Pablo", "Juan José", "Andrés", "Thiago", "Leonardo", "Felipe", "Ángel", "Maximiliano", "Christopher", "Juan Diego", "Adrián", "Pablo", "Miguel Ángel", "Rodrigo", "Alexander", "Ignacio", "Emilio", "Dylan", "Bruno", "Carlos", "Vicente", "Valentino", "Santino", "Julián", "Juan Sebastián", "Aarón", "Lautaro", "Axel", "Fernando", "Ian", "Christian", "Javier", "Manuel", "Luciano", "Francisco", "Juan David", "Iker", "Facundo", "Rafael", "Alex", "Franco", "Antonio", "Luis", "Isaac", "Máximo", "Pedro", "Ricardo", "Sergio", "Eduardo", "Bautista", "Miguel", "Cristóbal", "Kevin", "Jorge", "Alonso", "Anthony", "Simón", "Juan", "Joshua", "Diego Alejandro", "Juan Manuel", "Mario", "Alan", "Josué", "Gael", "Hugo", "Matthew", "Ivan", "Damián", "Lorenzo", "Juan Martín", "Esteban", "Álvaro", "Valentín", "Dante", "Jacobo", "Jesús", "Camilo", "Juan Esteban", "Elías"];
   var colors = ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#9e9e9e", "#607d8b"];
   var name = "Hans Günter von Anderswo";
-  var image = "images/fisch.jpg";
+  var image = "images/fish.jpg";
   var sql = "INSERT INTO zivis (name, spanish, bild, farbe) VALUES ('" + name + "', '" + spanish[Math.floor(Math.random() * spanish.length)] + "', '" + image + "', '" + colors[Math.floor(Math.random() * colors.length)] + "')";
   con.query(sql, function(err, result) {});
 }
