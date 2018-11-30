@@ -1,4 +1,4 @@
-$.get("components/quoteEdit.html", function(response) {
+$.get("resources/components/quoteEdit.html", function(response) {
   quoteEditTemplate = response;
 });
 //every 3 hours
