@@ -1,0 +1,8 @@
+{
+  "dbHost": "localhost",
+  "dbName": "zimon",
+  "dbUser": "zimon",
+  "dbPassword": "sql4Life!",
+  "fladeUrl": "https://www.fladerei.com/dyn_inhalte/tagesflade.html",
+  "mensaUrl": "https://www.imensa.de/wien/omp/index.html"
+}
