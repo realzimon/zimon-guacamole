@@ -14,6 +14,18 @@ $(function() {
           }
           $("body").css('filter', Vars.filter[Vars.selectedFilter]);
           break;
+        case "c":
+          if (Vars.coffee == 6) {
+            //$("#coffee").empty();
+            for(let i=0; i<6; i++){
+              $("#coffee-bean"+i).css("opacity", "0.25");
+            }
+            Vars.coffee=0;
+          }
+          //$("#coffee").append(Vars.coffeeBeanTemplate);
+          $("#coffee-bean"+Vars.coffee).css("opacity", "1");
+          Vars.coffee++;
+          break;
         case "l":
           //l --> listen mode
           if (Vars.listen) {

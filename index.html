@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,55 +18,66 @@
   </div>
 
   <div class="container mb-3">
-    <div class="p-3 mx-auto text-center mb-3" id="quotes">
-      <p class="h2 font-weight-light">Zitat des 3-Stunden-Rythmus:</p>
-      <p class="h3 font-weight-light" id="quote">Das ist ein Zitat, dass ein Zitat darstellen soll, da gerade kein Zitat vorhanden ist.</p>
+    <div class="row">
+      <div class="col-12 text-center pb-3" id="coffee">
+        <img src='assets/coffee.png' id='coffee-bean0' height='25' style='opacity: 0.25' />
+        <img src='assets/coffee.png' id='coffee-bean1' height='25' style='opacity: 0.25' />
+        <img src='assets/coffee.png' id='coffee-bean2' height='25' style='opacity: 0.25' />
+        <img src='assets/coffee.png' id='coffee-bean3' height='25' style='opacity: 0.25' />
+        <img src='assets/coffee.png' id='coffee-bean4' height='25' style='opacity: 0.25' />
+        <img src='assets/coffee.png' id='coffee-bean5' height='25' style='opacity: 0.25' />
+      </div>
     </div>
-
-    <p class="text-dark h4 pb-2">
+    <div class="row">
+      <div class="col-12 text-center mb-3" id="quotes">
+        <p class="h2 font-weight-light">Zitat des 3-Stunden-Rythmus:</p>
+        <p class="h3 font-weight-light" id="quote">Das ist ein Zitat, dass ein Zitat darstellen soll, da gerade kein Zitat vorhanden ist.</p>
+      </div </div> <p class="text-dark h4 pb-2">
       Arbeit wird neu verteilt in
       <span id="timer">TIMER</span>
-    </p>
-    <div class="row" id="zivis">
-      <!-- ZIVIS -->
-    </div>
-  </div>
-
-  <div class="row mr-0">
-    <div class="col-4">
-      <div class="text-center">
-        <img src="https://www.fladerei.com/wp-content/uploads/2017/09/Fladermaennchen_01-300x215.png" height="75" alt="Tagesflade" />
-        <p class="px-5 mt-4 h3 font-weight-light" id="flade">"Flade mit nix drin" -Flade mit spezieller Füllung, aus Stickstoff, Sauerstoff und einigen Edelgasen.</p>
+      </p>
+      
+      <div class="row" id="zivis">
+        <!-- ZIVIS -->
       </div>
     </div>
 
-    <div class="col-8">
-      <div class="text-center">
-        <div class="mensa-image-container">
-          <img src="http://www.mensen.at/images/logo_mensa.png" height="75" alt="Mensa Tagesmenu" class="mensa-logo" />
+    <div class="row mr-0">
+      <div class="col-4">
+        <div class="text-center">
+          <img src="https://www.fladerei.com/wp-content/uploads/2017/09/Fladermaennchen_01-300x215.png" height="75" alt="Tagesflade" />
+          <p class="px-5 mt-4 h3 font-weight-light" id="flade">"Flade mit nix drin" -Flade mit spezieller Füllung, aus Stickstoff, Sauerstoff und einigen Edelgasen.</p>
         </div>
-        <ul class="px-5 mt-4 h3 font-weight-light" id="mensa-menu">
-          <li>Geschmorter Hund mit Bratkartoffeln und Zwiebelringen</li>
-        </ul>
+      </div>
+
+      <div class="col-8">
+        <div class="text-center">
+          <div class="mensa-image-container">
+            <img src="http://www.mensen.at/images/logo_mensa.png" height="75" alt="Mensa Tagesmenu" class="mensa-logo" />
+          </div>
+          <ul class="px-5 mt-4 h3 font-weight-light" id="mensa-menu">
+            <li>Geschmorter Hund mit Bratkartoffeln und Zwiebelringen</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="overlay">
-    <nav>
-      <ul>
-        <li>
-          <p>Hey! Listen!</p>
-        </li>
-      </ul>
-    </nav>
-  </div>
+    <div class="overlay">
+      <nav>
+        <ul>
+          <li>
+            <p>Hey! Listen!</p>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-  <script>
-    window.$ = window.jQuery = require('jquery');
-    require('popper.js');
-    require('bootstrap');
-    require('./window.js');
-  </script>
+    <script>
+      window.$ = window.jQuery = require('jquery');
+      require('popper.js');
+      require('bootstrap');
+      require('./window.js');
+    </script>
 </body>
+
 </html>
