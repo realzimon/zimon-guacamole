@@ -2,18 +2,18 @@ let zivis, counter = [];
 let roundZivis = [];
 
 var ziviTemplate, ziviEditTemplate, ziviEditButton;
-$.get("components/ziviCards.html", function(response) {
+$.get("resources/components/ziviCards.html", function(response) {
   ziviTemplate = response;
 });
-$.get("components/ziviEdit.html", function(response) {
+$.get("resources/components/ziviEdit.html", function(response) {
   ziviEditTemplate = response;
 });
-$.get("components/ziviEditButton.html", function(response) {
+$.get("resources/components/ziviEditButton.html", function(response) {
   ziviEditButton = response;
 });
 
 var warTemplate;
-$.get("components/warTemplate.html", function(response) {
+$.get("resources/components/warTemplate.html", function(response) {
   warTemplate = response;
 });
 
