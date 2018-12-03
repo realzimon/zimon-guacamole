@@ -14,7 +14,7 @@ $(function() {
           }
           $("body").css('filter', Vars.filter[Vars.selectedFilter]);
           break;
-        case "c":
+        case "7":
           Coffee.clearCoffee();
           break;
         case "l":
