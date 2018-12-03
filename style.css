@@ -35,14 +35,13 @@ ul li{
 .clock{
   font-family: Segment7Standard, fantasy;
 }
-.coffee img{
+#coffee img{
   height: 25px;
+  opacity: .25;
 }
-.op-25{
-  opacity: 0.25;
-}
+
 .op-1{
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 @keyframes bgchange {

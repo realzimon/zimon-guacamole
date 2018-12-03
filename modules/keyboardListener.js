@@ -15,7 +15,7 @@ $(function() {
           $("body").css('filter', Vars.filter[Vars.selectedFilter]);
           break;
         case "c":
-          Coffee.addCoffee();
+          Coffee.clearCoffee();
           break;
         case "l":
           //l --> listen mode
@@ -60,6 +60,18 @@ $(function() {
         case "f":
           //f --> reload menu
           Menu.getDailyMenu();
+          break;
+        case "1":
+          // 1 --> Espresso
+          Coffee.drinkCoffee(2);
+          break;
+        case "3":
+          // 3 --> Doppio
+          Coffee.drinkCoffee(3);
+          break;
+        case "5":
+          // 5 --> Caffe Crema
+          Coffee.drinkCoffee(1);
           break;
         default:
           break;

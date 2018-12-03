@@ -14,6 +14,7 @@ function loadModules(){
   Clock.timer(10,0);
   Quote.dailyQuote();
   Zivis.readZivis();
+  Coffee.readCoffee();
 }
 
 $(() => {

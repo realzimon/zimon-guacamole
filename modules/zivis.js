@@ -2,16 +2,16 @@ let zivis, counter = [];
 let roundZivis = [];
 
 let ziviTemplate, ziviEditTemplate, ziviEditButton, warTemplate;
-$.get("components/ziviCards.html", function (response) {
+$.get("components/ziviCards.html", response => {
     ziviTemplate = response;
 });
-$.get("components/ziviEdit.html", function (response) {
+$.get("components/ziviEdit.html", response => {
     ziviEditTemplate = response;
 });
-$.get("components/ziviEditButton.html", function (response) {
+$.get("components/ziviEditButton.html", response => {
     ziviEditButton = response;
 });
-$.get("components/warTemplate.html", function (response) {
+$.get("components/warTemplate.html", response => {
     warTemplate = response;
 });
 
