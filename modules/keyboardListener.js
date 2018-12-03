@@ -17,6 +17,10 @@ $(function() {
         case "7":
           Coffee.clearCoffee();
           break;
+
+        case "i":
+          $(".lightrope").toggleClass("invisible");
+        break;
         case "l":
           //l --> listen mode
           if (Vars.listen) {
@@ -39,7 +43,7 @@ $(function() {
         case "w":
           //w --> war
           if (Vars.war) {
-            //restart sytsem
+            //restart system
             let answer = confirm("U sure u want end war?");
             if (answer) {
               restartSystem();
