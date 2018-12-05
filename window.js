@@ -7,6 +7,7 @@ global.Quote = require('./modules/quotes');
 global.Zivis = require('./modules/zivis');
 global.Coffee = require('./modules/coffee');
 global.mysqlService = require('./modules/mysqlService');
+global.Weather = require('./modules/weather');
 
 function loadModules(){
   Menu.getDailyMenu();
@@ -15,6 +16,7 @@ function loadModules(){
   Quote.dailyQuote();
   Zivis.readZivis();
   Coffee.readCoffee();
+  Weather.showWeather();
 }
 
 $(() => {
