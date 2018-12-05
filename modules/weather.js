@@ -1,5 +1,4 @@
 function showWeather() {
-    console.log("weather");
     $.getJSON(Config.weatherUrl + "&appid=" + Config.weatherApiKey, function (WeatherData) {
         let weatherId = WeatherData.weather[0].icon + ".png";
         let weatherDescription = WeatherData.weather[0].description;

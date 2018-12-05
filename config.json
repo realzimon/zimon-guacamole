@@ -7,5 +7,6 @@
   "mensaUrl": "https://www.imensa.de/wien/omp/index.html",
   "weatherUrl": "https://api.openweathermap.org/data/2.5/weather?id=2775259",
   "weatherImageUrl": "http://openweathermap.org/img/w/",
-  "weatherApiKey": "ea8602d108a17a42c43d1110c3b44c54"
+  "weatherApiKey": "ea8602d108a17a42c43d1110c3b44c54",
+  "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
 }

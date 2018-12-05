@@ -83,6 +83,8 @@ function showZivis() {
         $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].bild);
         $("#zivi" + i).find("#zivibg").css({ backgroundColor: zivis[i].farbe });
     }
+
+    showRemainingPeriodOfService();
 }
 
 function showMartialLaw() {
@@ -90,10 +92,33 @@ function showMartialLaw() {
     $("#zivis").prepend(warTemplate);
 }
 
+Date.prototype.addMonths = function (m) {
+    let d = new Date(this);
+    let years = Math.floor(m / 12);
+    let months = m - (years * 12);
+    if (years) d.setFullYear(d.getFullYear() + years);
+    if (months) d.setMonth(d.getMonth() + months);
+    d.setDate(d.getDate()-1);
+    return d;
+}
+
+function diff(a, b){
+  console.log("a: ", a);
+  console.log("b: ", b);
+  const MS_PER_DAY = 1000 * 60 * 60 * 24;
+  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+  return Math.floor((utc2 - utc1) / MS_PER_DAY);
+}
+
 function showRemainingPeriodOfService(){
-  console.log({zivis});
-  let mySQLDate = '2015-04-29 10:29:08';
-  new Date(Date.parse(mySQLDate.replace('-','/','g')));
+  let today = new Date();
+  for(let i=0;i<zivis.length;i++){
+    let days = diff( today, zivis[i].antritt.addMonths(9) );
+    let percent = Math.round((days / diff( zivis[i].antritt, zivis[i].antritt.addMonths(9) )) * 1000) / 100;
+    $("#zivi" + i).find("#remainingDays").html( days + " / " + percent + "%");
+  }
 }
 
 function editZivi() {
@@ -150,3 +175,4 @@ module.exports.showZivis = showZivis;
 module.exports.showMartialLaw = showMartialLaw;
 module.exports.editZivi = editZivi;
 module.exports.shuffleZivis = shuffleZivis;
+module.exports.showRemainingPeriodOfService = showRemainingPeriodOfService;

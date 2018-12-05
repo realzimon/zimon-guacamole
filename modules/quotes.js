@@ -8,7 +8,6 @@ let interval = setInterval(dailyQuote, 10800000);
 function dailyQuote() {
   mysqlService.readRandomQuoteDB(function(quote) {
     $("#quote").html(quote);
-    console.log(quote);
   });
 }
 
