@@ -83,8 +83,7 @@ function showZivis() {
         $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].bild);
         $("#zivi" + i).find("#zivibg").css({ backgroundColor: zivis[i].farbe });
     }
-
-    showRemainingPeriodOfService();
+    setInterval(showRemainingPeriodOfService(), 86400000);
 }
 
 function showMartialLaw() {
@@ -116,7 +115,7 @@ function showRemainingPeriodOfService(){
   let today = new Date();
   for(let i=0;i<zivis.length;i++){
     let days = diff( today, zivis[i].antritt.addMonths(9) );
-    let percent = Math.round((days / diff( zivis[i].antritt, zivis[i].antritt.addMonths(9) )) * 1000) / 100;
+    let percent = Math.round((days / diff( zivis[i].antritt, zivis[i].antritt.addMonths(9) )) * 1000) / 10;
     $("#zivi" + i).find("#remainingDays").html( days + " / " + percent + "%");
   }
 }
