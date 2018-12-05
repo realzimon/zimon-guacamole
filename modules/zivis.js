@@ -81,15 +81,19 @@ function showZivis() {
         }
         $("#zivi" + i).find("#zivicount").html(counter[zivis[i].name]);
         $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].bild);
-        $("#zivi" + i).find("#zivibg").css({
-            backgroundColor: zivis[i].farbe
-        });
+        $("#zivi" + i).find("#zivibg").css({ backgroundColor: zivis[i].farbe });
     }
 }
 
 function showMartialLaw() {
     clearZivis();
     $("#zivis").prepend(warTemplate);
+}
+
+function showRemainingPeriodOfService(){
+  console.log({zivis});
+  let mySQLDate = '2015-04-29 10:29:08';
+  new Date(Date.parse(mySQLDate.replace('-','/','g')));
 }
 
 function editZivi() {

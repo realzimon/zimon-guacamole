@@ -22,7 +22,7 @@ function newQuoteDB(quote) {
 }
 
 function readZivisDB(callback) {
-  con.query("SELECT id, name, spanish, bild, farbe FROM zivis WHERE dead=0", function(err, result) {
+  con.query("SELECT id, name, spanish, bild, farbe, antritt FROM zivis WHERE dead=0", function(err, result) {
     callback(result);
   });
 }
