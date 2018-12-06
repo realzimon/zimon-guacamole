@@ -5,12 +5,9 @@ function showWeather() {
         let weatherImageUrl = Config.weatherImageUrl + weatherId;
         let weatherTemp = Math.round((WeatherData.main.temp - 273.15) * 100) / 100;
         $('#weather').html(weatherTemp + "°C <img src='" + weatherImageUrl + "'> " + weatherDescription);
-    }).fail(function (jqXHR, textStatus, errorThrown) {
-        alert('getJSON request failed! ' + textStatus);
     });
 
-    setInterval(showWeather, 1000*60*5);
+    setInterval(showWeather, 1800000);
 }
-
 
 module.exports.showWeather = showWeather;
