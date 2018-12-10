@@ -101,14 +101,38 @@ Date.prototype.addMonths = function (m) {
     return d;
 }
 
-function diff(a, b){
-  console.log("a: ", a);
-  console.log("b: ", b);
-  const MS_PER_DAY = 1000 * 60 * 60 * 24;
-  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+// Day difference between two dates
+// function diff(a, b){
+//   console.log("a: ", a);
+//   console.log("b: ", b);
+//   const MS_PER_DAY = 1000 * 60 * 60 * 24;
+//   const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+//   const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+//
+//   return Math.floor((utc2 - utc1) / MS_PER_DAY);
+// }
 
-  return Math.floor((utc2 - utc1) / MS_PER_DAY);
+// Day difference between two dates excluding weekends
+function diff(date1, date2) {
+  let weeks, dateDiff, adjust = 0;
+
+  if (date2 < date1) return -1;
+
+  let weekday1 = date1.getDay() == 0 ? 7 : date1.getDay();
+  let weekday2 = date2.getDay() == 0 ? 7 : date2.getDay();
+
+  if ((weekday1 > 5) && (weekday2 > 5)) adjust = 1;
+
+  weekday1 = (weekday1 > 5) ? 5 : weekday1;
+  weekday2 = (weekday2 > 5) ? 5 : weekday2;
+  weeks = Math.floor((date2.getTime() - date1.getTime()) / 604800000)
+
+  weekday1 <= weekday2
+    ? dateDiff = (weeks * 5) + (weekday2 - weekday1)
+    : dateDiff = ((weeks + 1) * 5) - (weekday1 - weekday2)
+
+  dateDiff -= adjust;
+  return (dateDiff + 1);
 }
 
 function showRemainingPeriodOfService(){
