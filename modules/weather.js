@@ -7,7 +7,7 @@ function showWeather() {
         $('#weather').html(weatherTemp + "°C <img src='" + weatherImageUrl + "'> " + weatherDescription);
     });
 
-    setInterval(showWeather, 1800000);
+    setInterval(showWeather, 600000);
 }
 
 module.exports.showWeather = showWeather;
