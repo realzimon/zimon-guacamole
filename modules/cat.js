@@ -7,13 +7,12 @@ function showCatFact() {
     });
 }
 
+let catImageTimer = setInterval(showCatImage, 300000);
 function showCatImage() {
     $.getJSON(Config.catImageUrl, function (catImageData) {
         let catImageUrl = catImageData[0].url;
         $('#catimage').html("<img src='" + catImageUrl + "' width='250px' style='margin-top:-90px'>");
     });
-
-    setInterval(showCatImage, 300000);
 }
 
 
