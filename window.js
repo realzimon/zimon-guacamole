@@ -1,6 +1,5 @@
 global.Config = require('./config.json');
 global.Vars = require('./modules/vars');
-global.KeyBinds = require('./modules/keyboardListener');
 global.Menu = require('./modules/menu');
 global.Clock = require('./modules/clock');
 global.Quote = require('./modules/quotes');
