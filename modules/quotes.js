@@ -9,7 +9,7 @@ function dailyQuote() {
     mysqlService.readRandomQuoteDB(function (quote) {
         $("#quote").html(quote);
     });
-    showCatFat();
+    Cat.showCatFact();
 }
 
 function reloadDailyQuote() {
@@ -43,17 +43,6 @@ function editQuote() {
     });
 }
 
-function showCatFat() {
-    $.getJSON(Config.catFactsUrl, function (catFactsData) {
-        console.log(catFactsData);
-        let length = catFactsData.all.length;
-        let random = Math.floor(Math.random() * length);
-        console.log(random);
-        let catFact = catFactsData.all[random].text;
-        console.log(catFact);
-        $('#catfact').html(catFact);
-    });
-}
 
 module.exports.dailyQuote = dailyQuote;
 module.exports.editQuote = editQuote;
