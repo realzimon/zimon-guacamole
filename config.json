@@ -2,9 +2,9 @@
   "dbHost": "localhost",
   "dbName": "zimon",
   "dbUser": "zimon",
-  "dbPassword": "sql4Life!",
+  "dbPassword": "sql4Life",
   "fladeUrl": "https://www.fladerei.com/dyn_inhalte/tagesflade.html",
   "mensaUrl": "https://www.imensa.de/wien/omp/index.html",
   "weatherUrl": "http://api.apixu.com/v1/current.json?key=a1f6ec45322b4b59806121906181312&lat=48.21&lon=16.36&q=vienna",
-  "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
+  "catFactsUrl": "https://cat-fact.herokuapp.com/facts"
 }
