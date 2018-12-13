@@ -1,7 +1,5 @@
-let zivis, counter = [];
-let roundZivis = [];
+let zivis, counter = [], roundZivis = [], ziviTemplate, ziviEditTemplate, ziviEditButton, warTemplate;
 
-let ziviTemplate, ziviEditTemplate, ziviEditButton, warTemplate;
 $.get("components/ziviCards.html", response => {
     ziviTemplate = response;
 });
