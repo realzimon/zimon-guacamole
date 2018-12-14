@@ -83,14 +83,14 @@ const template = [
                     focusedWindow.webContents.executeJavaScript("$(\".lightrope\").toggleClass(\"invisible\");");
                 }
             },
-            /*{
+            {
                 label: 'Listen-Mode',
                 accelerator: 'CmdOrCtrl+L',
                 click(item, focusedWindow) {
-                    focusedWindow.webContents.executeJavaScript("$(\".overlay\").toggleClass('overlay-open');");
+                    focusedWindow.webContents.executeJavaScript("$(\".overlay\").toggleClass(\"overlay-open\");");
                 }
 
-            },*/
+            },
             {
                 label: 'Reload menu',
                 accelerator: 'CmdOrCtrl+F',

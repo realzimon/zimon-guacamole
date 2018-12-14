@@ -9,7 +9,8 @@
 }
 .overlay-open {
   animation: bgchange 1s linear infinite;
-  opacity: 1;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 .overlay nav {
   text-align: center;
@@ -42,6 +43,7 @@ ul li{
 
 .op-1{
   opacity: 1 !important;
+  visibility: visible !important;
 }
 
 @keyframes bgchange {
