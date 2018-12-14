@@ -1,12 +1,15 @@
-let weatherTimer = setInterval(showWeather, 600000);
+setInterval(showWeather, Config.weather.queryTime);
+
 function showWeather() {
-    $.getJSON(Config.weatherUrl + "&appid=" + Config.weatherApiKey, function (WeatherData) {
-        let weatherId = WeatherData.weather[0].icon + ".png";
-        let weatherDescription = WeatherData.weather[0].description;
-        let weatherImageUrl = Config.weatherImageUrl + weatherId;
-        let weatherTemp = Math.round((WeatherData.main.temp - 273.15) * 100) / 100;
-        $('#weather').html(weatherTemp + "°C <img src='" + weatherImageUrl + "'> " + weatherDescription);
-    });
+    fetch(Config.weather.apiUrl + "?id=" + Config.weather.locationId + "&appid=" + Config.weather.apiKey)
+        .then(res => res.json())
+        .then(data => {
+            let weatherId = data.weather[0].icon + ".png";
+            let weatherDescription = data.weather[0].description;
+            let weatherImageUrl = Config.weather.imageUrl + weatherId;
+            let weatherTemp = Math.round((data.main.temp - 273.15) * 100) / 100;
+            document.querySelector("#weather").innerHTML = `${weatherTemp}°C <img src='${weatherImageUrl}'> ${weatherDescription} `;
+        });
 }
 
 module.exports.showWeather = showWeather;

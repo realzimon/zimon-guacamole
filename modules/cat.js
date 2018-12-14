@@ -1,20 +1,12 @@
+setInterval(showCatFact, Config.catFacts.queryTime);
+
 function showCatFact() {
-    $.getJSON(Config.catFactsUrl, function (catFactsData) {
-        let length = catFactsData.all.length;
-        let random = Math.floor(Math.random() * length);
-        let catFact = catFactsData.all[random].text;
-        $('#catfact').html(catFact);
-    });
+    fetch(Config.catFacts.apiUrl)
+        .then(res => res.json())
+        .then(data => {
+            let random = Math.floor(Math.random() * data.all.length);
+            document.querySelector("#catfact").innerHTML = data.all[random].text;
+        });
 }
 
-let catImageTimer = setInterval(showCatImage, 300000);
-function showCatImage() {
-    $.getJSON(Config.catImageUrl, function (catImageData) {
-        let catImageUrl = catImageData[0].url;
-        $('#catimage').html("<img src='" + catImageUrl + "' width='250px' style='margin-top:-90px'>");
-    });
-}
-
-
-module.exports.showCatImage = showCatImage;
 module.exports.showCatFact = showCatFact;

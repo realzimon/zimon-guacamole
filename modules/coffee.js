@@ -1,20 +1,18 @@
-const cremaLength = 248.68;
-const espressoLength = 39.7887;
+let beans = 0;
 
 function addCoffee(){
-    if (Vars.coffee === 6) {
+    if (beans === 6) {
         Coffee.clearCoffee();
     }
-    $("#coffee").children().eq(Vars.coffee).addClass('op-1');
-    Vars.coffee++;
+    $("#coffee").children().eq(beans).addClass('op-1');
+    beans++;
 }
 
 function clearCoffee(){
     for(let i=0; i<6; i++){
-        console.log($("#coffee").children());
         $("#coffee").children().eq(i).removeClass('op-1');
     }
-    Vars.coffee=0;
+    beans = 0;
 }
 
 function readCoffee(){
@@ -24,12 +22,7 @@ function readCoffee(){
           $("<li />", {
               text: item.art + ": " + item.anzahl
           }).appendTo("#coffee-stats ul");
-        })
-        // for(let i=0;i<coffee.length;i++){
-        //     $("<li />", {
-        //         text: coffee[i].art + ": " + coffee[i].anzahl
-        //     }).appendTo("#coffee-stats ul");
-        // }
+        });
 
         calculateMileage(coffee);
     });
@@ -40,30 +33,17 @@ function calculateMileage(coffee){
     coffee.forEach(item => {
       switch(item.c_id){
           case 1:
-              mileage += cremaLength * item.anzahl;
+              mileage += Config.cafeCremaLength * item.anzahl;
               break;
           case 2:
-              mileage += espressoLength * item.anzahl;
+              mileage += Config.espressoLength * item.anzahl;
               break;
           case 3:
-              mileage += espressoLength * item.anzahl * 2;
+              mileage += Config.espressoLength * item.anzahl * 2;
               break;
       }
-    })
+    });
 
-    // for(let i=0;i<coffee.length;i++){
-    //     switch(coffee[i].c_id){
-    //         case 1:
-    //             mileage += cremaLength * coffee[i].anzahl;
-    //         break;
-    //         case 2:
-    //             mileage += espressoLength * coffee[i].anzahl;
-    //         break;
-    //         case 3:
-    //             mileage += espressoLength * coffee[i].anzahl * 2;
-    //         break;
-    //     }
-    // }
      $("#coffee-km").text(Math.round(mileage)/100 + " m");
 }
 
