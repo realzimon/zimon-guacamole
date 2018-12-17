@@ -3,8 +3,17 @@
   "dbName": "zimon",
   "dbUser": "zimon",
   "dbPassword": "sql4Life",
-  "fladeUrl": "https://www.fladerei.com/dyn_inhalte/tagesflade.html",
-  "mensaUrl": "https://www.imensa.de/wien/omp/index.html",
+  "menu": {
+    "show": true,
+    "flade": {
+      "url": "https://www.fladerei.com/dyn_inhalte/tagesflade.html",
+      "start": "Berggasse"
+    },
+    "mensa": {
+      "url": "https://www.imensa.de/wien/omp/index.html"
+    },
+    "queryTime": 21600000
+  },
   "espressoLength": 39.7887,
   "cafeCremaLength": 248.68,
   "weather": {
