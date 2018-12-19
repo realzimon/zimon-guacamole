@@ -3,7 +3,12 @@ let interval = setInterval(getDailyMenu, Config.menu.queryTime);
 
 function startDailyMenu() {
     //Append all the html parts to the index.html
-    getDailyMenu();
+    fetch("./components/menu.html")
+        .then(res => res.text())
+        .then(menuTemplate => {
+            document.querySelector("#menu").innerHTML = menuTemplate;
+            getDailyMenu();
+        });
 }
 
 function getDailyMenu() {

@@ -33,9 +33,6 @@
 ul li{
   list-style: none;
 }
-.clock{
-  font-family: Segment7Standard, fantasy;
-}
 #coffee img{
   height: 25px;
   opacity: .25;

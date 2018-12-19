@@ -18,7 +18,9 @@ if (Config.catFacts.show) {
 
 function loadModules() {
     Clock.clock();
-    Clock.timer(10, 0);
+    if (Config.timer.show) {
+        Clock.timer(Config.timer.intervalInMinutes, Config.timer.intervalInSeconds);
+    }
     Quote.dailyQuote();
     Zivis.readZivis();
     Coffee.readCoffee();

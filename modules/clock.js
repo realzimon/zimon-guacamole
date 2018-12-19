@@ -2,11 +2,15 @@ let end;
 
 function timer(minutes, seconds) {
     end = addTime(new Date(), minutes, seconds);
+    let timer = document.querySelector("#timer");
+    if (Config.timer.text.show) {
+        timer.parentElement.prepend(Config.timer.text.value + " ");
+    }
     let t = setInterval(function () {
         let time = new Date((end.getTime()) - (new Date().getTime()));
         let m = leadingZero(time.getMinutes());
         let s = leadingZero(time.getSeconds());
-        $("#timer").html(m + ":" + s);
+        timer.innerHTML = m + ":" + s;
         //Reset
         if (time.getMinutes() === 0 && time.getSeconds() === 0) {
             end = addTime(new Date(), minutes, seconds);
@@ -15,7 +19,7 @@ function timer(minutes, seconds) {
         if (Vars.war || Vars.edit) {
             clearInterval(t);
         }
-    }, 500);
+    }, 1000);
 }
 
 function reloadTimer(minutes, seconds) {
@@ -32,20 +36,22 @@ function addTime(time, minutesToAdd, secondsToAdd) {
 }
 
 function clock() {
+    let clock = document.querySelector("#clock");
+    clock.setAttribute("style", "color: " + Config.clock.color + "; font-family: " + Config.clock.font);
     setInterval(function () {
         let current = new Date();
         let h = leadingZero(current.getHours());
         let m = leadingZero(current.getMinutes());
         let s = leadingZero(current.getSeconds());
 
-        $("#clock").html(h + ":" + m + ":" + s);
-    }, 500);
+        clock.innerHTML = h + ":" + m + ":" + s;
+    }, 1000);
 }
 
 function leadingZero(i) {
     // add zero in front of numbers < 10
     if (i < 10) {
-        i = "0" + i
+        i = "0" + i;
     }
     return i;
 }

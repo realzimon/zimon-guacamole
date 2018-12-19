@@ -3,6 +3,19 @@
   "dbName": "zimon",
   "dbUser": "zimon",
   "dbPassword": "sql4Life",
+  "timer": {
+    "show": true,
+    "text": {
+      "show": true,
+      "value": "Arbeit wird neu verteilt in"
+    },
+    "intervalInMinutes": 10,
+    "intervalInSeconds": 0
+  },
+  "clock": {
+    "color": "#dc3545",
+    "font": "Segment7Standard, fantasy"
+  },
   "menu": {
     "show": true,
     "flade": {
