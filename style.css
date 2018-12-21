@@ -1,3 +1,8 @@
+@font-face {
+  font-family: FatWandals;
+  src: url("assets/fonts/FatWandals_PERSONAL.ttf");
+}
+
 .overlay {
   position: fixed;
   width: 100%;
@@ -20,6 +25,10 @@
 }
 .overlay ul {
   list-style: none;
+}
+
+#zivis{
+  font-family: "FatWandals"
 }
 
 .mensa-image-container{
