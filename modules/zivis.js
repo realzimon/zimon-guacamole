@@ -1,4 +1,4 @@
-let zivis, counter = [], roundZivis = [], ziviTemplate, ziviEditTemplate, ziviEditButton, warTemplate;
+let zivis, counter = [], roundZivis = [], ziviTemplate, ziviEditTemplate, ziviEditButton;
 
 $.get("components/ziviCards.html", response => {
     ziviTemplate = response;
@@ -8,9 +8,6 @@ $.get("components/ziviEdit.html", response => {
 });
 $.get("components/ziviEditButton.html", response => {
     ziviEditButton = response;
-});
-$.get("components/warTemplate.html", response => {
-    warTemplate = response;
 });
 
 function readZivis() {
@@ -84,11 +81,6 @@ function showZivis() {
     setInterval(showRemainingPeriodOfService(), 86400000);
 }
 
-function showMartialLaw() {
-    clearZivis();
-    $("#zivis").prepend(warTemplate);
-}
-
 Date.prototype.addMonths = function (m) {
     let d = new Date(this);
     let years = Math.floor(m / 12);
@@ -97,7 +89,7 @@ Date.prototype.addMonths = function (m) {
     if (months) d.setMonth(d.getMonth() + months);
     d.setDate(d.getDate()-1);
     return d;
-}
+};
 
 // Day difference between two dates
 // function diff(a, b){
@@ -123,11 +115,11 @@ function diff(date1, date2) {
 
   weekday1 = (weekday1 > 5) ? 5 : weekday1;
   weekday2 = (weekday2 > 5) ? 5 : weekday2;
-  weeks = Math.floor((date2.getTime() - date1.getTime()) / 604800000)
+    weeks = Math.floor((date2.getTime() - date1.getTime()) / 604800000);
 
   weekday1 <= weekday2
     ? dateDiff = (weeks * 5) + (weekday2 - weekday1)
-    : dateDiff = ((weeks + 1) * 5) - (weekday1 - weekday2)
+      : dateDiff = ((weeks + 1) * 5) - (weekday1 - weekday2);
 
   dateDiff -= adjust;
   return (dateDiff + 1);
@@ -161,7 +153,7 @@ function editZivi() {
     $("#zivis").prepend(ziviEditButton);
     $("#exit").click(function () {
         Vars.edit = false;
-        KeyBinds.restartSystem();
+        restartSystem();
     });
     //NewButton
     $("#new").click(function () {
@@ -191,9 +183,15 @@ function editZivi() {
     });
 }
 
+function restartSystem() {
+    Vars.war = false;
+    Clock.timer(10, 0);
+    Zivis.readZivis();
+    Quote.reloadDailyQuote();
+}
+
 module.exports.readZivis = readZivis;
 module.exports.showZivis = showZivis;
-module.exports.showMartialLaw = showMartialLaw;
 module.exports.editZivi = editZivi;
 module.exports.shuffleZivis = shuffleZivis;
 module.exports.showRemainingPeriodOfService = showRemainingPeriodOfService;
