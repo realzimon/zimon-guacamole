@@ -91,16 +91,23 @@ Date.prototype.addMonths = function (m) {
     return d;
 };
 
-// Day difference between two dates
-// function diff(a, b){
-//   console.log("a: ", a);
-//   console.log("b: ", b);
-//   const MS_PER_DAY = 1000 * 60 * 60 * 24;
-//   const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-//   const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-//
-//   return Math.floor((utc2 - utc1) / MS_PER_DAY);
-// }
+Date.prototype.addDays = function (days) {
+    let date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+};
+
+function calcBusinessDays(startDate, endDate) {
+  let numWorkDays = 0;
+  let currentDate = new Date(startDate);
+  while (currentDate <= endDate) {
+      if (currentDate.getDay() !== 0 && currentDate.getDay() !== 6) {
+          numWorkDays++;
+      }
+      currentDate = currentDate.addDays(1);
+  }
+  return numWorkDays;
+}
 
 // Day difference between two dates excluding weekends
 function diff(date1, date2) {
@@ -126,13 +133,22 @@ function diff(date1, date2) {
 }
 
 function showRemainingPeriodOfService(){
-  let today = new Date();
-  for(let i=0;i<zivis.length;i++){
-    let days = diff( today, zivis[i].antritt.addMonths(9) );
-    let percent = Math.round((days / diff( zivis[i].antritt, zivis[i].antritt.addMonths(9) )) * 1000) / 10;
-    $("#zivi" + i).find("#remainingDays").html( days + " / " + percent + "%");
+    let today = new Date();
+    for(let i=0;i<zivis.length;i++){
+      let days = calcBusinessDays( today, zivis[i].antritt.addMonths(9) );
+      let percent = Math.round((days / diff( zivis[i].antritt, zivis[i].antritt.addMonths(9) )) * 1000) / 10;
+      $("#zivi" + i).find("#remainingDays").html( days + " / " + percent + "%");
+    }
   }
-}
+
+// function showRemainingPeriodOfService(){
+//   let today = new Date();
+//   for(let i=0;i<zivis.length;i++){
+//     let days = diff( today, zivis[i].antritt.addMonths(9) );
+//     let percent = Math.round((days / diff( zivis[i].antritt, zivis[i].antritt.addMonths(9) )) * 1000) / 10;
+//     $("#zivi" + i).find("#remainingDays").html( days + " / " + percent + "%");
+//   }
+// }
 
 function editZivi() {
     Vars.edit = true;
