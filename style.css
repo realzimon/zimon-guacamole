@@ -24,13 +24,9 @@
   height: 60%;
   font-size: 80px;
 }
-.overlay ul {
-  list-style: none;
-}
+.overlay ul { list-style: none }
 
-#zivis{
-  font-family: "FatWandals"
-}
+#ziviname{ font-family: "FatWandals" }
 
 .mensa-image-container{
   height: 75px;
