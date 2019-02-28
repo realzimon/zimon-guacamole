@@ -10,10 +10,14 @@ function timer(minutes, seconds) {
         let time = new Date((end.getTime()) - (new Date().getTime()));
         let m = leadingZero(time.getMinutes());
         let s = leadingZero(time.getSeconds());
-        timer.innerHTML = m + ":" + s;
+        //timer = document.querySelector("#timer");
+        $("#timer").html(m + ":" + s);
+        //timer.innerHTML = m + ":" + s;
         //Reset
         if (time.getMinutes() === 0 && time.getSeconds() === 0) {
             end = addTime(new Date(), minutes, seconds);
+            console.log(new Date());
+            console.log(end);
             Zivis.shuffleZivis();
         }
         if (Vars.war || Vars.edit) {
@@ -25,6 +29,7 @@ function timer(minutes, seconds) {
 function reloadTimer(minutes, seconds) {
     //Set end to +min, seconds
     end = addTime(new Date(), minutes, seconds);
+    console.log("reloadtimer aufgerufen " + new Date())
     Zivis.shuffleZivis();
 }
 
@@ -32,6 +37,7 @@ function reloadTimer(minutes, seconds) {
 function addTime(time, minutesToAdd, secondsToAdd) {
     time.setMinutes(time.getMinutes() + minutesToAdd);
     time.setSeconds(time.getSeconds() + secondsToAdd);
+    console.log("addTime aufgerufen ");
     return time;
 }
 
@@ -43,8 +49,8 @@ function clock() {
         let h = leadingZero(current.getHours());
         let m = leadingZero(current.getMinutes());
         let s = leadingZero(current.getSeconds());
-
-        clock.innerHTML = h + ":" + m + ":" + s;
+        $("#clock").html(h + ":" + m + ":" + s);
+        //clock.innerHTML = h + ":" + m + ":" + s;
     }, 1000);
 }
 

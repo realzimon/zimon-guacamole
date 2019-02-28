@@ -1,8 +1,3 @@
-@font-face {
-  font-family: FatWandals;
-  src: url("assets/fonts/FatWandals_PERSONAL.ttf");
-}
-
 .overlay {
   position: fixed;
   width: 100%;
@@ -25,8 +20,6 @@
   font-size: 80px;
 }
 .overlay ul { list-style: none }
-
-#ziviname{ font-family: "FatWandals" }
 
 .mensa-image-container{
   height: 75px;
