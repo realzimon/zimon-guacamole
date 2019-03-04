@@ -154,16 +154,18 @@ function editZivi() {
     Vars.edit = true;
     clearZivis();
     for (i = 0; i < zivis.length; i++) {
+        console.log(`Durchlaufnummer: ${i+1}`);
+        console.log("Zivi: ", zivis[i]);
         if (i === 0) {
             //Insert first one
             $("#zivis").prepend(ziviEditTemplate);
         } else {
             $("#zivi" + (i - 1)).clone().prop('id', 'zivi' + i).appendTo("#zivis");
         }
-        $("#zivis").find("#inputId").val(zivis[i].id);
-        $("#zivis").find("#inputName").val(zivis[i].name);
-        $("#zivis").find("#inputSpanish").val(zivis[i].spanish);
-        $("#zivis").find("#inputImage").val(zivis[i].bild);
+        $("#zivi" + i).find("#inputId").val(zivis[i].id);
+        $("#zivi" + i).find("#inputName").val(zivis[i].name);
+        $("#zivi" + i).find("#inputSpanish").val(zivis[i].spanish);
+        $("#zivi" + i).find("#inputImage").val(zivis[i].bild);
     }
     //ExitButton
     $("#zivis").prepend(ziviEditButton);
