@@ -4,7 +4,7 @@ function timer(minutes, seconds) {
     end = addTime(new Date(), minutes, seconds);
     let timer = document.querySelector("#timer");
     if (Config.timer.text.show) {
-        timer.parentElement.prepend(Config.timer.text.value + " ");
+        timer.parentElement.innerHTML = Config.timer.text.value + " <span id='timer'> <!-- TIMER --></span>";
     }
     let t = setInterval(function () {
         let time = new Date((end.getTime()) - (new Date().getTime()));
