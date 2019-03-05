@@ -62,6 +62,7 @@ function showZivis() {
     clearZivis();
 
     for (let i = 0; i < zivis.length; i++) {
+        if(i >= 6) break;
         if (i === 0) {
             //Insert first one
             $("#zivis").prepend(ziviTemplate);
