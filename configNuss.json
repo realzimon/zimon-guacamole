@@ -2,11 +2,46 @@
   "dbHost": "localhost",
   "dbName": "zimon",
   "dbUser": "zimon",
-  "dbPassword": "sql4Life!",
-  "fladeUrl": "https://www.fladerei.com/dyn_inhalte/tagesflade.html",
-  "mensaUrl": "https://www.imensa.de/wien/omp/index.html",
-  "weatherUrl": "https://api.openweathermap.org/data/2.5/weather?id=2775259",
-  "weatherImageUrl": "http://openweathermap.org/img/w/",
-  "weatherApiKey": "ea8602d108a17a42c43d1110c3b44c54",
-  "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
+  "dbPassword": "sql4Life",
+  "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock",
+  "timer": {
+    "show": true,
+    "text": {
+      "show": true,
+      "value": "Arbeit wird neu verteilt in"
+    },
+    "intervalInMinutes": 10,
+    "intervalInSeconds": 0
+  },
+  "clock": {
+    "color": "#dc3545",
+    "font": "Segment7Standard, fantasy"
+  },
+  "menu": {
+    "show": true,
+    "flade": {
+      "url": "https://www.fladerei.com/dyn_inhalte/tagesflade.html",
+      "start": "Berggasse"
+    },
+    "mensa": {
+      "url": "https://www.imensa.de/wien/omp/index.html"
+    },
+    "queryTime": 21600000
+  },
+  "espressoLength": 39.7887,
+  "cafeCremaLength": 248.68,
+  "weather": {
+    "show": true,
+    "apiUrl": "https://api.openweathermap.org/data/2.5/weather",
+    "apiKey": "ea8602d108a17a42c43d1110c3b44c54",
+    "imageUrl": "http://openweathermap.org/img/w/",
+    "locationId": 2775259,
+    "queryTime": 600000
+  },
+  "catFacts": {
+    "show": true,
+    "apiUrl": "https://cat-fact.herokuapp.com/facts",
+    "queryTime": 10800000
+  }
 }
+
