@@ -12,7 +12,7 @@ const template = [
                 }
             }, {
                 label: 'Shuffle Zivis',
-                accelerator: 'S',
+                accelerator: 'CmdOrCtrl+S',
                 click(item, focusedWindow) {
                     focusedWindow.webContents.executeJavaScript("Clock.reloadTimer(10, 0);");
                 }
