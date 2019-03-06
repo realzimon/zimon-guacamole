@@ -25,37 +25,37 @@ function readZivis() {
 }
 
 function shuffleZivis() {
-    let lastFirst = zivis[0].name;
-    counter[zivis[0].name]++;
-    roundZivis[roundZivis.length] = zivis[0].id;
-    if (roundZivis.length === zivis.length) {
-        roundZivis = [];
-    }
-    if (zivis.length > 1) {
-        while (roundZivis.includes(zivis[0].id)) {
-            //Shuffles zivi array
-            let currentIndex = (zivis.length - 1),
-                temporaryValue, randomIndex;
-            // While there remain elements to shuffle...
-            while (0 !== currentIndex) {
-                // Pick a remaining element...
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                // And swap it with the current element.
-                temporaryValue = zivis[currentIndex];
-                zivis[currentIndex] = zivis[randomIndex];
-                zivis[randomIndex] = temporaryValue;
-                currentIndex--;
-            }
-            if (zivis[0].name === lastFirst) {
-                console.log("shuffle incorrect; shuffle again");
-            }
-        }
-    }
-    showZivis();
+	let lastFirst = zivis[0].name;
+	counter[zivis[0].name]++;
+	roundZivis[roundZivis.length] = zivis[0].id;
+	if (roundZivis.length === zivis.length) {
+		roundZivis = [];
+	}
+	if (zivis.length > 1) {
+		while (roundZivis.includes(zivis[0].id)) {
+			//Shuffles zivi array
+			let currentIndex = (zivis.length - 1),
+				temporaryValue, randomIndex;
+			// While there remain elements to shuffle...
+			while (0 !== currentIndex) {
+				// Pick a remaining element...
+				randomIndex = Math.floor(Math.random() * currentIndex);
+				// And swap it with the current element.
+				temporaryValue = zivis[currentIndex];
+				zivis[currentIndex] = zivis[randomIndex];
+				zivis[randomIndex] = temporaryValue;
+				currentIndex--;
+			}
+			if (zivis[0].name === lastFirst) {
+				console.log("shuffle incorrect; shuffle again");
+			}
+		}
+	}
+  showZivis();
 }
 
 function clearZivis() {
-    $("#zivis").empty();
+  $("#zivis").empty();
 }
 
 function showZivis() {
@@ -136,8 +136,9 @@ function diff(date1, date2) {
 function showRemainingPeriodOfService(){
     let today = new Date();
     for(let i=0;i<zivis.length;i++){
-      let days = calcBusinessDays( today, zivis[i].antritt.addMonths(9) );
-      let percent = Math.round((days / diff( zivis[i].antritt, zivis[i].antritt.addMonths(9) )) * 1000) / 10;
+      let antritt = new Date(zivis[i].antritt);
+      let days = calcBusinessDays( today, antritt.addMonths(9) );
+      let percent = Math.round((days / diff( antritt, antritt.addMonths(9) )) * 1000) / 10;
       $("#zivi" + i).find("#remainingDays").html( days + " / " + percent + "%");
     }
   }

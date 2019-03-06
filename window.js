@@ -12,9 +12,6 @@ if (Config.menu.show) {
 if (Config.weather.show) {
     global.Weather = require('./modules/weather');
 }
-if (Config.catFacts.show) {
-    global.Cat = require('./modules/cat');
-}
 
 function loadModules() {
     Clock.clock();
@@ -29,9 +26,6 @@ function loadModules() {
     }
     if (Config.weather.show) {
         Weather.showWeather();
-    }
-    if (Config.catFacts.show) {
-        Cat.showCatFact();
     }
 }
 

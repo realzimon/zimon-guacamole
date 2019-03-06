@@ -6,10 +6,9 @@ $.get("components/quoteEdit.html", function (response) {
 let interval = setInterval(dailyQuote, 10800000);
 
 function dailyQuote() {
-    mysqlService.readRandomQuoteDB(function (quote) {
-        $("#quote").html(quote);
-    });
-    Cat.showCatFact();
+  mysqlService.readRandomQuoteDB(function (quote) {
+    document.querySelector("#quote").innerHTML = quote;
+  });
 }
 
 function reloadDailyQuote() {
