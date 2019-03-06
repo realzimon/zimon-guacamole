@@ -7,9 +7,9 @@ CREATE TABLE `kaffee` (
   PRIMARY KEY (`c_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-INSERT INTO `kaffee` VALUES (1,'Caffè Crema',73);
-INSERT INTO `kaffee` VALUES (2,'Espresso',20);
-INSERT INTO `kaffee` VALUES (3,'Doppio',3);
+INSERT INTO `kaffee` VALUES (1,'Caffè Crema',171);
+INSERT INTO `kaffee` VALUES (2,'Espresso',23);
+INSERT INTO `kaffee` VALUES (3,'Doppio',6);
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `quotes` (

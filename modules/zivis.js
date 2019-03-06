@@ -142,31 +142,25 @@ function showRemainingPeriodOfService(){
     }
   }
 
-// function showRemainingPeriodOfService(){
-//   let today = new Date();
-//   for(let i=0;i<zivis.length;i++){
-//     let days = diff( today, zivis[i].antritt.addMonths(9) );
-//     let percent = Math.round((days / diff( zivis[i].antritt, zivis[i].antritt.addMonths(9) )) * 1000) / 10;
-//     $("#zivi" + i).find("#remainingDays").html( days + " / " + percent + "%");
-//   }
-// }
-
 function editZivi() {
     Vars.edit = true;
     clearZivis();
     for (i = 0; i < zivis.length; i++) {
-        console.log(`Durchlaufnummer: ${i+1}`);
-        console.log("Zivi: ", zivis[i]);
         if (i === 0) {
             //Insert first one
             $("#zivis").prepend(ziviEditTemplate);
         } else {
             $("#zivi" + (i - 1)).clone().prop('id', 'zivi' + i).appendTo("#zivis");
         }
+        let antritt = zivis[i].antritt;
         $("#zivi" + i).find("#inputId").val(zivis[i].id);
         $("#zivi" + i).find("#inputName").val(zivis[i].name);
         $("#zivi" + i).find("#inputSpanish").val(zivis[i].spanish);
         $("#zivi" + i).find("#inputImage").val(zivis[i].bild);
+        console.log(document.querySelector(`#zivi${i}`));
+        document.querySelector(`#zivi${i}`).value = `${antritt.getDay}-${antritt.getMonth}-${antritt.getFullYear}`;
+        //$("#zivi" + i).find("#inputDate").val(zivis[i].antritt.format('DD-MM-YYYY'));
+        console.log(zivis[i]);
     }
     //ExitButton
     $("#zivis").prepend(ziviEditButton);
@@ -191,7 +185,8 @@ function editZivi() {
         let id = div.find("#inputId").val();
         let name = div.find('#inputName').val();
         let image = div.find('#inputImage').val();
-        mysqlService.updateZiviDB(name, image, id);
+        let antritt = div.find('#inputDate').val();
+        mysqlService.updateZiviDB(name, image, id, antritt);
         div.find(".zivibutton").removeClass("btn-warning").addClass("btn-primary");
     });
     $(".zividead").click(function () {

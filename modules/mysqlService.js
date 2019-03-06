@@ -27,8 +27,8 @@ function readZivisDB(callback) {
   });
 }
 
-function updateZiviDB(name, image, id) {
-  let sql = "UPDATE zivis SET name='" + name + "', bild='" + image + "' WHERE id=?";
+function updateZiviDB(name, image, id, antritt) {
+  let sql = "UPDATE zivis SET name='" + name + "', bild='" + image + "', antritt='" + antritt + "' WHERE id=?";
   con.query(sql, id, function(err, result) {});
 }
 
