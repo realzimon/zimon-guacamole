@@ -153,15 +153,11 @@ function editZivi() {
         } else {
             $("#zivi" + (i - 1)).clone().prop('id', 'zivi' + i).appendTo("#zivis");
         }
-        let antritt = zivis[i].antritt;
         $("#zivi" + i).find("#inputId").val(zivis[i].id);
         $("#zivi" + i).find("#inputName").val(zivis[i].name);
         $("#zivi" + i).find("#inputSpanish").val(zivis[i].spanish);
-        $("#zivi" + i).find("#inputImage").val(zivis[i].bild);
-        console.log(document.querySelector(`#zivi${i}`));
-        document.querySelector(`#zivi${i}`).value = `${antritt.getDay}-${antritt.getMonth}-${antritt.getFullYear}`;
-        //$("#zivi" + i).find("#inputDate").val(zivis[i].antritt.format('DD-MM-YYYY'));
-        console.log(zivis[i]);
+				$("#zivi" + i).find("#inputImage").val(zivis[i].bild);
+        document.querySelector(`#zivi${i}`).querySelector("#inputDate").value = zivis[i].antritt
     }
     //ExitButton
     $("#zivis").prepend(ziviEditButton);
