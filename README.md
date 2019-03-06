@@ -10,3 +10,8 @@ cd zimon-guacamole
 npm install 
 npm start
 ```
+
+## building sqlite3 for electron
+```sh
+npm install sqlite3 --build-from-source --runtime=electron --target=3.0.6 --dist-url=https://atom.io/download/electron
+```
