@@ -27,7 +27,8 @@ function readRandomQuoteDB(callback){
 
 function newQuoteDB(quote){
   let sql = "INSERT INTO quotes (quote) VALUES (?)";
-  db.prepare(sql, [quote], err => {
+  console.log(quote);
+  db.run(sql, [quote], err => {
     if (err) throw err;
   })
 }
