@@ -4,7 +4,8 @@
   "description": "Zimon rewrite in Electron. A dashboard application for civil servants that assigns work fairly. Meme native",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "rebuild": "install-app-deps"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
   },
   "homepage": "https://github.com/realzimon/zimon-guacamole#readme",
   "devDependencies": {
-    "electron": "3.0.6"
+    "electron": "3.0.6",
+    "electron-builder": "^20.38.5"
   },
   "dependencies": {
     "bootstrap": ">=4.3.1",
