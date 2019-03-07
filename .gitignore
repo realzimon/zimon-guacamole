@@ -3,3 +3,4 @@ images/*
 package-lock.json
 configNuss.json
 assets/nussTestImages
+db/zimon.db
