@@ -24,36 +24,17 @@ function timer(minutes, seconds) {
 			clearInterval(t);
 		}
 	}, 1000);
+	setInterval(() => {
+		end = addTime(new Date(), 60, 0);
+		console.log("timer reload aufgerufen im einstündigen Interval" + new Date());
+	}, 1000 * 60 * 60);
 }
-
-// function resetter() {
-// 	end = addTime(new Date(), 60, 0);
-
-// 	let t = setInterval(function () {
-// 		let time = new Date((end.getTime()) - (new Date().getTime()));
-// 		//Reset
-// 		if (time.getMinutes() === 0 && time.getSeconds() === 0) {
-// 			end = addTime(new Date(), minutes, seconds);
-// 			console.log(new Date());
-// 			console.log(end);
-// 			Zivis.shuffleZivis();
-// 		}
-// 		if (Vars.war || Vars.edit) {
-// 			clearInterval(t);
-// 		}
-// 	}, 1000);
-// }
 
 function reloadTimer(minutes, seconds) {
 	//Set end to +min, seconds
 	end = addTime(new Date(), minutes, seconds);
-	console.log("reloadtimer aufgerufen " + new Date())
+	console.log("reloadtimer aufgerufen " + new Date());
 	Zivis.shuffleZivis();
-}
-
-function justReloadTimer(){
-  end = addTime(new Date(), minutes, seconds);
-  console.log("reloadtimer aufgerufen " + new Date())
 }
 
 function addTime(time, minutesToAdd, secondsToAdd) {
@@ -87,4 +68,3 @@ function leadingZero(i) {
 module.exports.clock = clock;
 module.exports.timer = timer;
 module.exports.reloadTimer = reloadTimer;
-module.exports.justReloadTimer = justReloadTimer;

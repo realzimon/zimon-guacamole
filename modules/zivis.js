@@ -54,9 +54,7 @@ function shuffleZivis() {
   showZivis();
 }
 
-function clearZivis() {
-  $("#zivis").empty();
-}
+function clearZivis() { $("#zivis").empty() }
 
 function showZivis() {
     clearZivis();
