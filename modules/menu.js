@@ -34,7 +34,7 @@ function getDailyMenu() {
             dailyMeal.forEach(function (meal, i) {
                 if (i !== dailyMeal.length - 1) {
                     //Last item with aw-meal class isn't a meal
-                    mensaMealsFormated += ("<li class='pb-3'>" + meal.textContent + "</li>");
+                    mensaMealsFormated += ("<li class='pb-3'>" + meal.innerText + "</li>");
                 }
             });
             mensaUl.innerHTML = mensaMealsFormated;
