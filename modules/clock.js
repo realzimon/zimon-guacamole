@@ -27,7 +27,7 @@ function timer(minutes, seconds) {
 	setInterval(() => {
 		end = addTime(new Date(), 60, 0);
 		console.log("timer reload aufgerufen im einstündigen Interval" + new Date());
-	}, 1000 * 60 * 60);
+	}, 1000 * 60 * 30);
 }
 
 function reloadTimer(minutes, seconds) {
