@@ -1,7 +1,8 @@
 let end;
 
 function timer(minutes, seconds) {
-    end = addTime(new Date(), minutes, seconds);
+    //end = addTime(new Date(), minutes, seconds);
+    reloadTimer(minutes, seconds);
     let timer = document.querySelector("#timer");
     if (Config.timer.text.show) {
         timer.parentElement.innerHTML = Config.timer.text.value + " <span id='timer'> <!-- TIMER --></span>";
@@ -10,12 +11,12 @@ function timer(minutes, seconds) {
         let time = new Date((end.getTime()) - (new Date().getTime()));
         let m = leadingZero(time.getMinutes());
         let s = leadingZero(time.getSeconds());
-        //timer = document.querySelector("#timer");
-        $("#timer").html(m + ":" + s);
-        //timer.innerHTML = m + ":" + s;
+        timer = document.querySelector("#timer");
+        //$("#timer").html(m + ":" + s);
+        timer.innerHTML = m + ":" + s;
         //Reset
         if (time.getMinutes() === 0 && time.getSeconds() === 0) {
-            end = addTime(new Date(), minutes, seconds);
+            reloadTimer(minutes, seconds);
             console.log(new Date());
             console.log(end);
             Zivis.shuffleZivis();
