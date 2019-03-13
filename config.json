@@ -9,8 +9,8 @@
       "show": true,
       "value": "Arbeit wird neu verteilt in"
     },
-    "intervalInMinutes": 10,
-    "intervalInSeconds": 0
+    "intervalInMinutes": 0,
+    "intervalInSeconds": 5
   },
   "clock": {
     "color": "#dc3545",
