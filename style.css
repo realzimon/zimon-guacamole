@@ -1,3 +1,20 @@
+/* iFrame Styles - temporary */
+iframe{
+  border: none;
+  width: 380px;
+  height: 180px;
+}
+
+.absolute{
+  position: absolute;
+  top: 74px;
+  right: 0px;
+}
+
+
+/* iFrame Styles End */
+
+
 .overlay {
   position: fixed;
   width: 100%;

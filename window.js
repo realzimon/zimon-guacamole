@@ -13,6 +13,17 @@ if (Config.weather.show) {
     global.Weather = require('./modules/weather');
 }
 
+// if (Config.catFacts.show) {
+//     global.Cat = require('./modules/cat');
+// }
+
+let style = document.createElement("style");
+style.textContent = `
+  body{background: white}
+`;
+frames["countdown"].document.head.appendChild(style);
+//document.getElementById('countdown').contentWindow.document.body.querySelector(".container").removeChild();
+
 function loadModules() {
     Clock.clock();
     if (Config.timer.show) {
@@ -21,12 +32,13 @@ function loadModules() {
     Quote.dailyQuote();
     Zivis.readZivis();
     Coffee.readCoffee();
-    if (Config.menu.show) {
-        Menu.startDailyMenu();
-    }
-    if (Config.weather.show) {
-        Weather.showWeather();
-    }
+    if (Config.menu.show) Menu.startDailyMenu();
+
+    if (Config.weather.show) Weather.showWeather();
+
+    // if (Config.catFacts.show) {
+    //     Cat.showCatFact();
+    // }
 }
 
 $(() => {
