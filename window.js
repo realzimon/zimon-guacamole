@@ -17,13 +17,6 @@ if (Config.weather.show) {
 //     global.Cat = require('./modules/cat');
 // }
 
-let style = document.createElement("style");
-style.textContent = `
-  body{background: white}
-`;
-frames["countdown"].document.head.appendChild(style);
-//document.getElementById('countdown').contentWindow.document.body.querySelector(".container").removeChild();
-
 function loadModules() {
     Clock.clock();
     if (Config.timer.show) {
