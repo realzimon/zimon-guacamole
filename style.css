@@ -41,7 +41,11 @@ ul li{
   visibility: visible !important;
 }
 
-img#ziviimage{ object-position: top }
+img#ziviimage{ 
+  object-position: top;
+  object-fit: cover;
+  height: 160px;
+}
 
 @keyframes bgchange {
   0%{
