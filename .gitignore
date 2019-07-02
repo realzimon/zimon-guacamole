@@ -1,6 +1,8 @@
 node_modules
 images/*
+.DS_Store
 package-lock.json
 assets/nussTestImages
 db/zimon.db
 zimon
+db/.DS_Store

@@ -41,6 +41,8 @@ ul li{
   visibility: visible !important;
 }
 
+img#ziviimage{ object-position: top }
+
 @keyframes bgchange {
   0%{
     background-color: #03a9f4;
