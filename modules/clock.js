@@ -8,14 +8,16 @@ function timer(minutes, seconds) {
 	}
 	let t = setInterval(function () {
 		time = new Date((end.getTime()) - (new Date().getTime()));
-		console.log({time});
 		m = leadingZero(time.getMinutes());
 		s = leadingZero(time.getSeconds());
 		//Reset
 		if (time.getMinutes() === 0 && time.getSeconds() === 0) {
 			end = addTime(new Date(), minutes, seconds);
-			Zivis.shuffleZivis();
-		}
+      Zivis.shuffleZivis();
+		} else if (time.getMinutes() >= 10) {
+      end = addTime(new Date(), minutes, seconds);
+      Zivis.shuffleZivis();
+    }
 		timer = document.getElementById("timer");
 		timer.innerHTML = m + ":" + s;
 		if (Vars.war || Vars.edit) {
@@ -43,21 +45,25 @@ function timer(minutes, seconds) {
 // 		setTimeout(step, Math.max(0, delay - dt));
 // 	}
 // }
+// 
+// Umrechnung in Millisekunden
+// const miliseconds = (m,s) => (m * 60 + s) * 1000;
 
 function reloadTimer(minutes, seconds) {
 	//Set end to +min, seconds
 	end = addTime(new Date(), minutes, seconds);
-	console.log("reloadtimer aufgerufen " + new Date());
-	Zivis.shuffleZivis();
+  Zivis.shuffleZivis();
+  detectTimer();
 }
 
-// Umrechnung in Millisekunden
-const miliseconds = (m,s) => (m * 60 + s) * 1000;
+function detectTimer() {
+  let timer = document.getElementById("timer").parentElement.innerHTML;
+  console.log(timer);
+}
 
 function addTime(time, minutesToAdd, secondsToAdd) {
 	time.setMinutes(time.getMinutes() + minutesToAdd);
 	time.setSeconds(time.getSeconds() + secondsToAdd);
-	console.log("addTime aufgerufen ", time);
 	return time;
 }
 
@@ -76,10 +82,12 @@ function clock() {
 
 // add zero in front of numbers < 10
 function leadingZero(i) {
-	if (i < 10) {
-		i = "0" + i;
-	}
-	return i;
+	return i < 10 ? i = `0${i}` : i;
+
+	// if (i < 10) {
+	// 	i = "0" + i;
+	// }
+	// return i;
 }
 
 module.exports.clock = clock;
