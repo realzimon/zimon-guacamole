@@ -10,15 +10,6 @@ let db = new sqlite3.Database('./db/zimon.db', sqlite3.OPEN_READWRITE, (err) => 
 //   console.log('Close the database connection.');
 // });
 
-//Deprecated
-// let mysql = require('mysql');
-// let con = mysql.createConnection({
-//   host: Config.dbHost,
-//   user: Config.dbUser,
-//   password: Config.dbPassword,
-//   database: Config.dbName
-// });
-
 function readRandomQuoteDB(callback){
   db.get("SELECT quote FROM quotes ORDER BY RANDOM() LIMIT 1", (err, row) => {
     if (err) return console.error(err.message);
@@ -43,7 +34,6 @@ function readZivisDB(callback) {
 }
 
 function updateZiviDB(name, image, mexican_image, id, antritt){
-  console.log(mexican_image);
   let sql = "UPDATE zivis SET name = ?, bild = ?, mexiko_bild = ?, antritt = ? WHERE id = ?";
   let params = [name, image, mexican_image, antritt, id];
   db.run(sql, params, err => {

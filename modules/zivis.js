@@ -70,7 +70,6 @@ function showZivis() {
         //print content
         if (Vars.spanish) {
             $("#zivi" + i).find("#ziviname").html(zivis[i].spanish);
-            console.log($("#zivi" + i).find("#ziviimage"));
             $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].mexiko_bild);
         } else {
             $("#zivi" + i).find("#ziviname").html(zivis[i].name);
