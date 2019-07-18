@@ -70,6 +70,7 @@ function showZivis() {
         //print content
         if (Vars.spanish) {
             $("#zivi" + i).find("#ziviname").html(zivis[i].spanish);
+            console.log($("#zivi" + i).find("#ziviimage"));
             $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].mexiko_bild);
         } else {
             $("#zivi" + i).find("#ziviname").html(zivis[i].name);
@@ -183,9 +184,9 @@ function editZivi() {
         let id = div.find("#inputId").val();
         let name = div.find('#inputName').val();
         let image = div.find('#inputImage').val();
-        let mexican_image = div.find("#inputMexicanImage").val();
+        let mexicanImage = div.find("#inputMexicanImage").val();
         let antritt = div.find('#inputDate').val();
-        mysqlService.updateZiviDB(name, image, mexican_image, id, antritt);
+        mysqlService.updateZiviDB(name, image, mexicanImage, id, antritt);
         div.find(".zivibutton").removeClass("btn-warning").addClass("btn-primary");
     });
     $(".zividead").click(function () {
