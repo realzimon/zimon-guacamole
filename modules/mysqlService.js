@@ -10,13 +10,14 @@ let db = new sqlite3.Database('./db/zimon.db', sqlite3.OPEN_READWRITE, (err) => 
 //   console.log('Close the database connection.');
 // });
 
-let mysql = require('mysql');
-let con = mysql.createConnection({
-  host: Config.dbHost,
-  user: Config.dbUser,
-  password: Config.dbPassword,
-  database: Config.dbName
-});
+//Deprecated
+// let mysql = require('mysql');
+// let con = mysql.createConnection({
+//   host: Config.dbHost,
+//   user: Config.dbUser,
+//   password: Config.dbPassword,
+//   database: Config.dbName
+// });
 
 function readRandomQuoteDB(callback){
   db.get("SELECT quote FROM quotes ORDER BY RANDOM() LIMIT 1", (err, row) => {
