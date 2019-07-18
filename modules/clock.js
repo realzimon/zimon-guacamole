@@ -75,8 +75,8 @@ function clock() {
 		let h = leadingZero(current.getHours());
 		let m = leadingZero(current.getMinutes());
 		let s = leadingZero(current.getSeconds());
-		$("#clock").html(h + ":" + m + ":" + s);
-		//clock.innerHTML = h + ":" + m + ":" + s;
+		//$("#clock").html(h + ":" + m + ":" + s);
+		clock.innerHTML = h + ":" + m + ":" + s;
 	}, 1000);
 }
 

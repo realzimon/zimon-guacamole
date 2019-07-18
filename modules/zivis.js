@@ -70,11 +70,12 @@ function showZivis() {
         //print content
         if (Vars.spanish) {
             $("#zivi" + i).find("#ziviname").html(zivis[i].spanish);
+            $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].mexiko_bild);
         } else {
             $("#zivi" + i).find("#ziviname").html(zivis[i].name);
+            $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].bild);
         }
         $("#zivi" + i).find("#zivicount").html(counter[zivis[i].name]);
-        $("#zivi" + i).find("#ziviimage").attr("src", zivis[i].bild);
         $("#zivi" + i).find("#zivibg").css({ backgroundColor: zivis[i].farbe });
     }
     setInterval(showRemainingPeriodOfService(), 86400000);
@@ -154,7 +155,8 @@ function editZivi() {
         $("#zivi" + i).find("#inputId").val(zivis[i].id);
         $("#zivi" + i).find("#inputName").val(zivis[i].name);
         $("#zivi" + i).find("#inputSpanish").val(zivis[i].spanish);
-				$("#zivi" + i).find("#inputImage").val(zivis[i].bild);
+        $("#zivi" + i).find("#inputImage").val(zivis[i].bild);
+        $("#zivi" + i).find("#inputMexicanImage").val(zivis[i].mexiko_bild);
         document.querySelector(`#zivi${i}`).querySelector("#inputDate").value = zivis[i].antritt
     }
     //ExitButton
@@ -175,13 +177,15 @@ function editZivi() {
         div.find(".zivibutton").removeClass("btn-primary").addClass("btn-warning");
     });
     //SubmitButton
-    $(".zivibutton").click(function () {
+    $(".zivibutton").click(function (e) {
+        e.preventDefault();
         let div = $(this).parent().parent();
         let id = div.find("#inputId").val();
         let name = div.find('#inputName').val();
         let image = div.find('#inputImage').val();
+        let mexican_image = div.find("#inputMexicanImage").val();
         let antritt = div.find('#inputDate').val();
-        mysqlService.updateZiviDB(name, image, id, antritt);
+        mysqlService.updateZiviDB(name, image, mexican_image, id, antritt);
         div.find(".zivibutton").removeClass("btn-warning").addClass("btn-primary");
     });
     $(".zividead").click(function () {

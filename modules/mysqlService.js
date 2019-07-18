@@ -41,9 +41,9 @@ function readZivisDB(callback) {
   })
 }
 
-function updateZiviDB(name, image, id, antritt){
-  let sql = "UPDATE zivis SET name = ?, bild = ?, antritt = ? WHERE id = ?";
-  let params = [name, image, antritt, id];
+function updateZiviDB(name, image, mexican_image, id, antritt){
+  let sql = "UPDATE zivis SET name = ?, bild = ?, mexiko_bild = ?, antritt = ? WHERE id = ?";
+  let params = [name, image, mexican_image, antritt, id];
   db.run(sql, params, err => {
     if (err) throw err;
   })
